@@ -100,11 +100,11 @@ public class GT_Pollution {
 			//get pollution
 			int tPollution = chunkData.get(actualPos)[GTPOLLUTION];
 			//remove some
-			tPollution = (int)(0.9945f*tPollution);
-			//tPollution -= 2000;
+			tPollution = (int)(0.99f*tPollution);
+			tPollution -= 2000;
 
 			if(tPollution<=0) tPollution = 0;//SANity check
-			else if(tPollution>400000){//Spread Pollution
+			else if(tPollution>50000){//Spread Pollution
 
 				ChunkCoordIntPair[] tNeighbors = new ChunkCoordIntPair[4];//array is faster
 				tNeighbors[0]=(new ChunkCoordIntPair(actualPos.chunkXPos+1,actualPos.chunkZPos));
@@ -117,7 +117,7 @@ public class GT_Pollution {
 					int neighborPollution = chunkData.get(neighborPosition)[GTPOLLUTION];
 					if(neighborPollution*6 < tPollution*5){//METHEMATICS...
 						int tDiff = tPollution - neighborPollution;
-						tDiff = tDiff/20;
+						tDiff = tDiff/10;
 						neighborPollution += tDiff;
 						tPollution -= tDiff;
 						chunkData.get(neighborPosition)[GTPOLLUTION] = neighborPollution;
