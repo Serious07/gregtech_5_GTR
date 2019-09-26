@@ -61,7 +61,7 @@ public class GT_Pollution {
 	private List<ChunkCoordIntPair> pollutionList = new ArrayList<>();//chunks left to process
 	private HashMap<ChunkCoordIntPair,int[]> chunkData;//link to chunk data that is saved/loaded
 	private int operationsPerTick=0;//how much chunks should be processed in each cycle
-	private static final short cycleLen=1200;
+	private static final short cycleLen=400;
 	private final World aWorld;
 	public static int mPlayerPollution;
 
@@ -100,7 +100,7 @@ public class GT_Pollution {
 			//get pollution
 			int tPollution = chunkData.get(actualPos)[GTPOLLUTION];
 			//remove some
-			tPollution = (int)(0.99f*tPollution);
+			tPollution = (int)(0.7f*tPollution);
 			tPollution -= 2000;
 
 			if(tPollution<=0) tPollution = 0;//SANity check
@@ -277,8 +277,4 @@ public class GT_Pollution {
 		addPollution(aWorld.getChunkFromBlockCoords(aPos.chunkPosX,aPos.chunkPosZ),aPollution);
 	}
 
-	public static void addPollution(ChunkPosition chunkPosition, int aPollution) {
-		// TODO Auto-generated method stub
-		
-	}
 }

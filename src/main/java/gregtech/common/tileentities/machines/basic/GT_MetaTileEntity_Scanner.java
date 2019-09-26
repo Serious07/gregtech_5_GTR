@@ -11,6 +11,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.objects.ItemData;
+import gregtech.api.util.GT_LanguageManager;
 import gregtech.api.util.*;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import net.minecraft.init.Items;
@@ -154,7 +155,7 @@ public class GT_MetaTileEntity_Scanner
             	for(GT_Recipe.GT_Recipe_AssemblyLine tRecipe:GT_Recipe.GT_Recipe_AssemblyLine.sAssemblylineRecipes){
             	if(GT_Utility.areStacksEqual(tRecipe.mResearchItem, aStack, true)){
             	this.mOutputItems[0] = GT_Utility.copyAmount(1L, new Object[]{getSpecialSlot()});
-                GT_Utility.ItemNBT.setBookTitle(this.mOutputItems[0], tRecipe.mOutput.getDisplayName()+" Construction Data");
+                GT_Utility.ItemNBT.setBookTitle(this.mOutputItems[0], GT_LanguageManager.getTranslation(tRecipe.mOutput.getDisplayName())+" Construction Data");
                 NBTTagCompound tNBT = this.mOutputItems[0].getTagCompound();
                 if (tNBT == null) {
                     tNBT = new NBTTagCompound();
@@ -178,14 +179,14 @@ public class GT_MetaTileEntity_Scanner
                 }
                 tNBT.setString("author", "Assembly Line Recipe Generator");
                 NBTTagList tNBTList = new NBTTagList();
-                tNBTList.appendTag(new NBTTagString("Constructionplan for "+tRecipe.mOutput.stackSize+" "+ tRecipe.mOutput.getDisplayName()+". Needed EU/t: "+tRecipe.mEUt+" Productiontime: "+(tRecipe.mDuration/20)));
+                tNBTList.appendTag(new NBTTagString("Constructionplan for "+tRecipe.mOutput.stackSize+" "+ GT_LanguageManager.getTranslation(tRecipe.mOutput.getDisplayName())+". Needed EU/t: "+tRecipe.mEUt+" Productiontime: "+(tRecipe.mDuration/20)));
                 for(int i=0;i<tRecipe.mInputs.length;i++){
                 	if (tRecipe.mOreDictAlt[i] != null) {
                 		int count = 0;
                 		StringBuilder tBuilder = new StringBuilder("Input Bus "+(i+1)+": ");
                 		for (ItemStack tStack : tRecipe.mOreDictAlt[i]) {
                 			if (tStack != null) {
-                				tBuilder.append((count == 0 ? "" : "\nOr ") + tStack.stackSize+" "+ tStack.getDisplayName());
+                				tBuilder.append((count == 0 ? "" : "\nOr ") + tStack.stackSize+" "+ GT_LanguageManager.getTranslation(tStack.getDisplayName()));
                     			count++;
                 			}
                 		}

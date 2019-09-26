@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-		classpath files('libs/TecTech-1.7.10-3.6.11.jar','libs/bartworks.1.7.10.-0.5.2-dev.jar','libs/YAMCore-1.7.10-0.5.78.jar','libs/GT_PlusPlus_1_7_02_99_pre.jar','libs/EnderCore-1.7.10-0.2.0.38_beta.jar','libs/EnderIO-1.7.10-2.3.0.429_beta.jar','libs/buildcraft-7.1.23.jar','libs/YAMCore-1.7.10-0.5.78.jar','libs/TecTech-1.7.10-3.7.3.jar','libs/AppleCore-mc1.7.10-3.1.1.jar','libs/appliedenergistics2_rv3_beta_18.jar','libs/GalacticraftCore-Dev-1.7-3.0.12.504.jar','libs/Galacticraft-API-1.7-3.0.12.504.jar')
+		classpath files('libs/TecTech-1.7.10-3.6.11.jar','libs/bartworks.1.7.10.-0.5.2-dev.jar','libs/YAMCore-1.7.10-0.5.78.jar','libs/GT_PlusPlus_1_7_02_99_pre.jar','libs/EnderCore-1.7.10-0.2.0.38_beta.jar','libs/EnderIO-1.7.10-2.3.0.429_beta.jar','libs/buildcraft-7.1.23.jar','libs/TecTech-1.7.10-3.7.3.jar','libs/AppleCore-mc1.7.10-3.1.1.jar','libs/appliedenergistics2_rv3_beta_18.jar','libs/GalacticraftCore-Dev-1.7-3.0.12.504.jar','libs/Galacticraft-API-1.7-3.0.12.504.jar')
     }
 }
 

@@ -184,7 +184,7 @@ public class GT_MetaTileEntity_PyrolyseOven extends GT_MetaTileEntity_MultiBlock
 
     @Override
     public int getPollutionPerTick(ItemStack aStack) {
-        return 30;
+        return 10;
     }
 
     @Override
