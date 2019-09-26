@@ -4798,10 +4798,50 @@ if(Loader.isModLoaded("Railcraft")){
 		   GT_Values.RA.addMultiblockChemicalRecipe(new ItemStack[]{GT_Utility.getIntegratedCircuit(24)}, new FluidStack[]{Materials.Nitrogen.getGas(2000), new FluidStack(FluidRegistry.getFluid("ic2coolant"), 1000), Materials.Ledox.getMolten(144)},  new FluidStack[]{Materials.SuperCoolant.getFluid(3000)}, null, 700, 122880);
            
       //Solar Panel
-		GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_MV.get(3L), GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Elite, 4L), ItemList.Circuit_Silicon_Wafer2.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), ItemList.Circuit_Chip_LPIC.get(2L)},Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_MV.get(3L), ItemList.Circuit_Elitenanocomputer.get(4L), ItemList.Circuit_Silicon_Wafer2.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), ItemList.Circuit_Chip_LPIC.get(2L)},Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_MV.get(3L), ItemList.Circuit_Quantumcomputer.get(4L), ItemList.Circuit_Silicon_Wafer2.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), ItemList.Circuit_Chip_LPIC.get(2L)},Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_MV.get(3L), ItemList.Circuit_Crystalprocessor.get(4L), ItemList.Circuit_Silicon_Wafer2.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), ItemList.Circuit_Chip_LPIC.get(2L)},Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);
+		GT_Values.RA.addAssemblerRecipe(new ItemStack[]{
+				ItemList.Cover_SolarPanel_MV.get(3L), 
+				GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Advanced, 4L), 
+				ItemList.Circuit_Silicon_Wafer2.get(4L), 
+				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), 
+				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), 
+				GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), 
+				ItemList.Circuit_Chip_LPIC.get(2L)},
+				
+				Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 128, true);
+        
+		/*GT_Values.RA.addAssemblerRecipe(new ItemStack[]{
+        		ItemList.Cover_SolarPanel_MV.get(3L), 
+        		ItemList.Circuit_Advanced.get(4L), 
+        		ItemList.Circuit_Silicon_Wafer2.get(4L), 
+        		GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), 
+        		GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), 
+        		GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), 
+        		ItemList.Circuit_Chip_LPIC.get(2L)},
+				
+        		Materials.SolderingAlloy.getMolten(144), 
+        		ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);*/
+        
+		/*GT_Values.RA.addAssemblerRecipe(new ItemStack[]{
+				ItemList.Cover_SolarPanel_MV.get(3L), 
+				ItemList.Circuit_Advanced.get(4L), 
+				ItemList.Circuit_Silicon_Wafer2.get(4L), 
+				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), 
+				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), 
+				GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), 
+				ItemList.Circuit_Chip_LPIC.get(2L)},
+				
+				Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);
+        
+		GT_Values.RA.addAssemblerRecipe(new ItemStack[]{
+				ItemList.Cover_SolarPanel_MV.get(3L), 
+				ItemList.Circuit_Advanced.get(4L), 
+				ItemList.Circuit_Silicon_Wafer2.get(4L), 
+				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), 
+				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), 
+				GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), 
+				ItemList.Circuit_Chip_LPIC.get(2L)},
+				
+				Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 1920, true);*/
         
         
         if(Loader.isModLoaded("GalacticraftCore")){
@@ -4810,23 +4850,48 @@ if(Loader.isModLoaded("Railcraft")){
             GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Crystalcomputer.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.MeteoricSteel, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);
             GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Neuroprocessor.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.MeteoricSteel, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);    
         	
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Quantummainframe.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Desh, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Ultimatecrystalcomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Desh, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Wetwarecomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Desh, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Quantummainframe.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Desh, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Ultimatecrystalcomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Desh, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Wetwarecomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Desh, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
         }else{
-        	GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Master, 4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);
-            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Masterquantumcomputer.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);
+        	GT_Values.RA.addAssemblerRecipe(new ItemStack[]{
+        			ItemList.Cover_SolarPanel_HV.get(3L), 
+        			GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Data, 4L), 
+        			ItemList.Circuit_Silicon_Wafer9.get(4L), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), 
+        			GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), 
+        			ItemList.Circuit_Chip_PIC.get(2L)},
+        			
+        			Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 512, true);
+        	
+            /*GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Masterquantumcomputer.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);
             GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Crystalcomputer.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);
-            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Neuroprocessor.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);    
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_HV.get(3L), ItemList.Circuit_Neuroprocessor.get(4L), ItemList.Circuit_Silicon_Wafer9.get(4L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), ItemList.Circuit_Chip_PIC.get(2L)},Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 7680, true);    */
             
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Quantummainframe.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Ultimatecrystalcomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
-        GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Wetwarecomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
+        	GT_Values.RA.addAssemblerRecipe(new ItemStack[]{
+        			ItemList.Cover_SolarPanel_EV.get(3L), 
+        			GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Elite, 4L), 
+        			GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), 
+        			ItemList.Circuit_Silicon_Wafer4.get(6L), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), 
+        			GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), 
+        			GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},
+        			
+        			Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 2048, true);
+        	
+            /*GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Quantummainframe.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Ultimatecrystalcomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);
+            GT_Values.RA.addAssemblerRecipe(new ItemStack[]{ItemList.Cover_SolarPanel_EV.get(3L), ItemList.Circuit_Wetwarecomputer.get(4L), GT_OreDictUnificator.get(OrePrefixes.plate, Materials.Sunnarium, 8), ItemList.Circuit_Silicon_Wafer4.get(6L), GT_OreDictUnificator.get(OrePrefixes.plateAlloy, Materials.Carbon, 4), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 30720, true);*/
         }
         
         GT_Values.RA.addAssemblylineRecipe(ItemList.Cover_SolarPanel_IV.get(1, new Object(){}),72000,new Object[]{
         		ItemList.Cover_SolarPanel_IV.get(3L),
-        		new Object[]{OrePrefixes.circuit.get(Materials.Superconductor), 6},
+        		new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), 6},
         		GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Sunnarium, 8),
         		ItemList.Circuit_Silicon_Wafer3.get(4L),
         		ItemList.Circuit_Silicon_Wafer7.get(4L),
@@ -4839,11 +4904,11 @@ if(Loader.isModLoaded("Railcraft")){
         },
         new FluidStack[]{
                 Materials.SolderingAlloy.getMolten(576)},
-        ItemList.Cover_SolarPanel_LuV.get(1, new Object[]{}), 480, 122880);
+        ItemList.Cover_SolarPanel_LuV.get(1, new Object[]{}), 480, 32768);
         
         GT_Values.RA.addAssemblylineRecipe(ItemList.Cover_SolarPanel_LuV.get(1, new Object(){}),144000,new Object[]{
         		ItemList.Cover_SolarPanel_LuV.get(3L),
-        		new Object[]{OrePrefixes.circuit.get(Materials.Infinite), 6},
+        		new Object[]{OrePrefixes.circuit.get(Materials.Superconductor), 6},
         		GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Sunnarium, 8),
         		ItemList.Circuit_Silicon_Wafer7.get(4L),
         		ItemList.Circuit_Silicon_Wafer8.get(4L),
@@ -4858,11 +4923,11 @@ if(Loader.isModLoaded("Railcraft")){
         },
         new FluidStack[]{
                 Materials.SolderingAlloy.getMolten(720)},
-        ItemList.Cover_SolarPanel_ZPM.get(1, new Object[]{}), 600, 500000);
+        ItemList.Cover_SolarPanel_ZPM.get(1, new Object[]{}), 600, 131072);
         
         GT_Values.RA.addAssemblylineRecipe(ItemList.Cover_SolarPanel_ZPM.get(1, new Object(){}),288000,new Object[]{
         		ItemList.Cover_SolarPanel_ZPM.get(2L),
-        		new Object[]{OrePrefixes.circuit.get(Materials.Bio), 8},
+        		new Object[]{OrePrefixes.circuit.get(Materials.Infinite), 8},
         		GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Sunnarium, 8),
         		ItemList.Circuit_Silicon_Wafer8.get(4L),
         		ItemList.Circuit_Silicon_Wafer5.get(4L),
@@ -4877,7 +4942,7 @@ if(Loader.isModLoaded("Railcraft")){
         },
         new FluidStack[]{
                 Materials.SolderingAlloy.getMolten(1080)},
-        ItemList.Cover_SolarPanel_UV.get(1, new Object[]{}), 720, 2000000);
+        ItemList.Cover_SolarPanel_UV.get(1, new Object[]{}), 720, 524228);
         if(Loader.isModLoaded("tectech")){
     	    
     	    TT_recipeAdder.addResearchableAssemblylineRecipe(ItemList.Cover_SolarPanel_UV.get(1L),
