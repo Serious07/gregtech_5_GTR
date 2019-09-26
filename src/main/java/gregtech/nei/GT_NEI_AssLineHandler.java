@@ -40,6 +40,7 @@ public class GT_NEI_AssLineHandler
     public static final int sOffsetX = 5;
     public static final int sOffsetY = 11;
 
+    
     static {
         GuiContainerManager.addInputHandler(new GT_RectHandler());
         GuiContainerManager.addTooltipHandler(new GT_RectHandler());
