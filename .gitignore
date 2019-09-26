@@ -82,5 +82,5 @@ gradlew.bat
 
 #Mod ignore Folders
 
-!libs
+!libs/*
 !.gitignore
