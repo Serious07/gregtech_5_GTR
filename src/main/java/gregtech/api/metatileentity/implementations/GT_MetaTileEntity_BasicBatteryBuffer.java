@@ -234,7 +234,7 @@ public class GT_MetaTileEntity_BasicBatteryBuffer extends GT_MetaTileEntity_Tier
             mBatteryCount = 0;
             mChargeableCount = 0;
             for (ItemStack tStack : mInventory)
-                if (GT_ModHandler.isElectricItem(tStack, mTier)) {
+                if (tStack != null) {
                     if (GT_ModHandler.isChargerItem(tStack)) mBatteryCount++;
                     mChargeableCount++;
                 }
