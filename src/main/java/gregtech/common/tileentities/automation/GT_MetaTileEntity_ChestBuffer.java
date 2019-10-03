@@ -139,9 +139,10 @@ public class GT_MetaTileEntity_ChestBuffer
     private Map<Item, ArrayList<Integer>> itemsHash = new HashMap<Item, ArrayList<Integer>>();
     
     protected void fillStacksIntoFirstSlots() {
-        // sortStacks();
         
-        itemsHash.clear();
+        
+    	// Serious07 Code
+        /*itemsHash.clear();
         
         for(int i = 0; i < this.mInventory.length; i++) {
     		// Init array
@@ -163,22 +164,25 @@ public class GT_MetaTileEntity_ChestBuffer
             }
             
             it.remove(); // avoids a ConcurrentModificationException
-        }
+        }*/
         
+    	// Spartak code
+    	sortStacks();
+    	
         // Merge small stacks together
-        //for (int i = 0; i < this.mInventory.length-1;) {
+        for (int i = 0; i < this.mInventory.length-1;) {
             //GT_FML_LOGGER.info( (this.mInventory[i] == null) ? "Slot empty " + i : "Slot " + i + " holds " + this.mInventory[i].getDisplayName());
-        //    for (int j = i + 1; j < this.mInventory.length; j++) {
-        //        if ((this.mInventory[j] != null) && ((GT_Utility.areStacksEqual(this.mInventory[i], this.mInventory[j])))) {
-        //            GT_Utility.moveStackFromSlotAToSlotB(getBaseMetaTileEntity(), getBaseMetaTileEntity(), j, i, (byte) 64, (byte) 1, (byte) 64, (byte) 1);
+            for (int j = i + 1; j < this.mInventory.length; j++) {
+                if ((this.mInventory[j] != null) && ((GT_Utility.areStacksEqual(this.mInventory[i], this.mInventory[j])))) {
+                    GT_Utility.moveStackFromSlotAToSlotB(getBaseMetaTileEntity(), getBaseMetaTileEntity(), j, i, (byte) 64, (byte) 1, (byte) 64, (byte) 1);
                     //GT_FML_LOGGER.info( "Moving slot " + j + " into slot " +  i );
-        //        }
-        //        else {
-        //            i=j;
-        //            break; // No more matching items for this i, do next i
-        //        }
-        //    }
-        //}
+                }
+                else {
+                    i=j;
+                    break; // No more matching items for this i, do next i
+                }
+            }
+        }
     }
     
     /*protected void fillStacksIntoFirstSlots() {
