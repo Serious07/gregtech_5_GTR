@@ -11,6 +11,7 @@ import gregtech.api.enchants.Enchantment_EnderDamage;
 import gregtech.api.enchants.Enchantment_Radioactivity;
 import gregtech.api.enums.*;
 import gregtech.api.interfaces.internal.IGT_Mod;
+import gregtech.api.metatileentity.implementations.GT_MetaPipeEntity_CableBlockPlacedDestryed;
 import gregtech.api.objects.ItemData;
 import gregtech.api.objects.MaterialStack;
 import gregtech.api.objects.XSTR;
@@ -48,6 +49,7 @@ import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -590,7 +592,9 @@ public class GT_Mod implements IGT_Mod {
 
     @Mod.EventHandler
     public void onLoad(FMLInitializationEvent aEvent) {
-        if (GregTech_API.sLoadStarted) {
+    	MinecraftForge.EVENT_BUS.register(new GT_MetaPipeEntity_CableBlockPlacedDestryed());
+    	
+    	if (GregTech_API.sLoadStarted) {
             return;
         }
         try {
