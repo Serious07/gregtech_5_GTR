@@ -12,8 +12,8 @@
 * Используйте команду git clone ссылка на репозиторий
 * Скайчайте и распакуйте в папку проекта архив forge src 1.7.10 1614 https://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.7.10.html
  * Вызовите команды перейдя в папку с проектом:
-		```gradlew.b﻿at setupDeco﻿mpWorks﻿pace```
-		﻿```g﻿radlew.bat eclips﻿e (Если используете эклипс)```
+  *```gradlew.b﻿at setupDeco﻿mpWorks﻿pace```
+  *```g﻿radlew.bat eclips﻿e (Если используете эклипс)```
 
 Настройка эклипса:
 * При запуски укжите папку со скаченным проектом/eclipse
