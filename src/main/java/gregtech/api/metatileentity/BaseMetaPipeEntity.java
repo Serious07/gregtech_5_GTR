@@ -262,6 +262,10 @@ public class BaseMetaPipeEntity extends BaseTileEntity implements IGregTechTileE
                         if ((mConnections & -64) == 64 && getRandomNumber(1000) == 0) {
                             mConnections = (byte) ((mConnections & ~64) | -128);
                         }
+                        
+                        if(mTickTimer == 11) {
+                        	joinEnet();
+                        }
                     }
                 case 8:
                     tCode = 9;

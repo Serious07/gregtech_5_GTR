@@ -658,7 +658,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
     	
     	// System.out.println("onCreated");
     	
-    	UpdateNearestCables();
+    	UpdateNearestCables(CONNECTION_DELAY);
     	checkConnection(CONNECTION_DELAY);
     }
     
@@ -669,7 +669,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
     	
     	// System.out.println("onFirstTick");
     	
-    	UpdateNearestCables();
+    	UpdateNearestCables(CONNECTION_DELAY);
     	checkConnection(CONNECTION_DELAY);
     }
     
@@ -697,7 +697,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
                 mTransferredVoltageLast20 = 0;
                 mTransferredAmperageLast20 = 0;
                 
-                if(needToCheck) {
+                /*if(needToCheck) {
                 	if(checkDealy > 0) {
                 		checkDealy -= 20;
                 		
@@ -708,15 +708,15 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
                 			checkConnection();
                 		}
                 	}
-                }
+                }*/
                 
-                //checkConnection();
+                checkConnection();
                 
                 //if (!GT_Mod.gregtechproxy.gt6Cable || mCheckConnections) checkConnections();
             }
             
             // TODO: Обновленние с задержкой нигде не используется поэтому закомментирован чтобы не вызывать лищний раз
-            // NeedUpdateCableWithDelay();
+            NeedUpdateCableWithDelay();
             
             // ClearListOfEmmiters();
         }else if(aBaseMetaTileEntity.isClientSide() && GT_Client.changeDetected==4) aBaseMetaTileEntity.issueTextureUpdate();
@@ -898,19 +898,28 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 	@Override
     public boolean shouldJoinIc2Enet() {
         if (!GT_Mod.gregtechproxy.ic2EnergySourceCompat) return false;
-
+        
         if (mConnections != 0) {
             final IGregTechTileEntity baseMeta = getBaseMetaTileEntity();
             for( byte aSide = 0 ; aSide < 6 ; aSide++) if(isConnectedAtSide(aSide)) {
                 final TileEntity tTileEntity = baseMeta.getTileEntityAtSide(aSide);
                 final TileEntity tEmitter = (tTileEntity == null || tTileEntity instanceof IEnergyTile || EnergyNet.instance == null) ? tTileEntity :
                     EnergyNet.instance.getTileEntity(tTileEntity.getWorldObj(), tTileEntity.xCoord, tTileEntity.yCoord, tTileEntity.zCoord);
-
-                if (tEmitter instanceof IEnergyEmitter)
-                    return true;
-
+                
+                if(tTileEntity != null) {
+                	System.out.println("tTileEntity:" + tTileEntity.toString());
+                } else {
+                	System.out.println("tTileEntity: null");
+                }
+                
+                if (tEmitter instanceof IEnergyEmitter) {
+                    System.out.println("shouldJoinIc2Enet: " + true);
+                	return true;
+                }
             }
         }
+        System.out.println("shouldJoinIc2Enet: " + false);
+        
         return false;
     }
 	

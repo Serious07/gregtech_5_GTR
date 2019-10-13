@@ -22,6 +22,10 @@ public class TileIC2EnergySink extends TileEntity implements IEnergySink {
         if (metaTile instanceof IMetaTileEntityCable) {
             cableMeta = (GT_MetaPipeEntity_Cable) metaTile;
         }
+        setWorldObj(meta.getWorld());
+        xCoord = meta.getXCoord();
+        yCoord = meta.getYCoord();
+        zCoord = meta.getZCoord();
     }
     /*
      *
@@ -82,6 +86,8 @@ public class TileIC2EnergySink extends TileEntity implements IEnergySink {
 
         final long usedAmps;
         if(cableMeta != null) {
+        	System.out.println(myMeta.getInventoryName() + ": transfer electricity");
+        	
             usedAmps = ((IMetaTileEntityCable) metaTile).transferElectricity((byte) directionFrom.ordinal(), Math.min(euPerAmp, cableMeta.mVoltage), amps, Sets.newHashSet((TileEntity) myMeta));
 
             // [23:17:00] [Client thread/INFO]: [CHAT] §9(§aAOE §aSafe §aMode §ais §aenabled§9) §cOperation §cCanceled §cbecause §ca §ctile §centity §cwas §cdetected

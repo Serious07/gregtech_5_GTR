@@ -461,10 +461,7 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
     protected void createIc2Sink() {
         if(ic2EnergySink == null && FMLCommonHandler.instance().getEffectiveSide().isServer() && shouldJoinIc2Enet()) {
             ic2EnergySink = new TileIC2EnergySink((IGregTechTileEntity)this);
-            ic2EnergySink.xCoord = xCoord;
-            ic2EnergySink.yCoord = yCoord;
-            ic2EnergySink.zCoord = zCoord;
-            ic2EnergySink.setWorldObj(worldObj);
+            
         }
     }
 
@@ -474,14 +471,21 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
     }
 
     protected void joinEnet() {
+    	System.out.println("start joinEnet x: " + xCoord + " y: " + yCoord + " z:" + zCoord);
+    	
+    	System.out.println("joinedIc2Enet: " + joinedIc2Enet);
+    	System.out.println("!shouldJoinIc2Enet(): " + !shouldJoinIc2Enet());
+    	
         if (joinedIc2Enet || !shouldJoinIc2Enet()) return;
 
-        if(ic2EnergySink == null) createIc2Sink();
+        if (ic2EnergySink == null) createIc2Sink();
 
         if (ic2EnergySink != null) {
             MinecraftForge.EVENT_BUS.post(new EnergyTileLoadEvent(ic2EnergySink));
             joinedIc2Enet = true;
         }
+        
+        System.out.println("finish joinEnet x: " + xCoord + " y: " + yCoord + " z:" + zCoord);
     }
 
     protected void leaveEnet() {
