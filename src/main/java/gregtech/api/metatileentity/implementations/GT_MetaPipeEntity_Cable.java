@@ -229,7 +229,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
         return (int) mAmperage * 64;
     }
 
-    private void pullFromIc2EnergySources(IGregTechTileEntity aBaseMetaTileEntity) {
+    /*private void pullFromIc2EnergySources(IGregTechTileEntity aBaseMetaTileEntity) {
         if(!GT_Mod.gregtechproxy.ic2EnergySourceCompat) return;
         
         for( byte aSide = 0 ; aSide < 6 ; aSide++) {
@@ -264,7 +264,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 	            }
 	        }
         }
-    }
+    }*/
 
     @Override
     public long injectEnergyUnits(byte aSide, long aVoltage, long aAmperage) {
@@ -688,7 +688,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
         if (aBaseMetaTileEntity.isServerSide()) {
-        	if (GT_Mod.gregtechproxy.ic2EnergySourceCompat) pullFromIc2EnergySources(aBaseMetaTileEntity);
+        	// if (GT_Mod.gregtechproxy.ic2EnergySourceCompat) pullFromIc2EnergySources(aBaseMetaTileEntity);
             
             mTransferredAmperage = 0;
             if(mOverheat>0) mOverheat--;
@@ -895,7 +895,25 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
         return GT_Mod.gregtechproxy.gt6Cable;
             }
 
+	@Override
+    public boolean shouldJoinIc2Enet() {
+        if (!GT_Mod.gregtechproxy.ic2EnergySourceCompat) return false;
 
+        if (mConnections != 0) {
+            final IGregTechTileEntity baseMeta = getBaseMetaTileEntity();
+            for( byte aSide = 0 ; aSide < 6 ; aSide++) if(isConnectedAtSide(aSide)) {
+                final TileEntity tTileEntity = baseMeta.getTileEntityAtSide(aSide);
+                final TileEntity tEmitter = (tTileEntity == null || tTileEntity instanceof IEnergyTile || EnergyNet.instance == null) ? tTileEntity :
+                    EnergyNet.instance.getTileEntity(tTileEntity.getWorldObj(), tTileEntity.xCoord, tTileEntity.yCoord, tTileEntity.zCoord);
+
+                if (tEmitter instanceof IEnergyEmitter)
+                    return true;
+
+            }
+        }
+        return false;
+    }
+	
     @Override
     public boolean allowPullStack(IGregTechTileEntity aBaseMetaTileEntity, int aIndex, byte aSide, ItemStack aStack) {
         return false;
