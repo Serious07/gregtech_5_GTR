@@ -95,14 +95,15 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
         mHidden = aRecipe.mHidden;
     }
 
-    protected GT_Recipe(boolean aOptimize, ItemStack[] aInputs, ItemStack[] aOutputs, Object aSpecialItems, int[] aChances, FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs, int aDuration, int aEUt, int aSpecialValue) {
+    protected GT_Recipe(boolean aOptimize, ItemStack[] aInputs, ItemStack[] aOutputs, Object aSpecialItems, int[] aChances, 
+    					FluidStack[] aFluidInputs, FluidStack[] aFluidOutputs, int aDuration, int aEUt, int aSpecialValue) {
         if (aInputs == null) aInputs = new ItemStack[0];
         if (aOutputs == null) aOutputs = new ItemStack[0];
         if (aFluidInputs == null) aFluidInputs = new FluidStack[0];
         if (aFluidOutputs == null) aFluidOutputs = new FluidStack[0];
         if (aChances == null) aChances = new int[aOutputs.length];
         if (aChances.length < aOutputs.length) aChances = Arrays.copyOf(aChances, aOutputs.length);
-
+        
         aInputs = GT_Utility.getArrayListWithoutTrailingNulls(aInputs).toArray(new ItemStack[0]);
         aOutputs = GT_Utility.getArrayListWithoutTrailingNulls(aOutputs).toArray(new ItemStack[0]);
         aFluidInputs = GT_Utility.getArrayListWithoutNulls(aFluidInputs).toArray(new FluidStack[0]);

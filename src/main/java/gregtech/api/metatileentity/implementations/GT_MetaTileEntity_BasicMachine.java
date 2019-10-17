@@ -222,12 +222,12 @@ public abstract class GT_MetaTileEntity_BasicMachine extends GT_MetaTileEntity_B
 
     @Override
     public long getMinimumStoredEU() {
-        return V[mTier] * 16;
+        return V[mTier] * 16L;
     }
 
     @Override
     public long maxEUStore() {
-        return V[mTier] * 64;
+        return V[mTier] * 64L;
     }
 
     @Override
@@ -242,7 +242,7 @@ public abstract class GT_MetaTileEntity_BasicMachine extends GT_MetaTileEntity_B
 
     @Override
     public long maxAmperesIn() {
-        return (mEUt * 2) / V[mTier] + 1;
+        return (mEUt * 2L) / V[mTier] + 1L;
     }
 
     @Override
