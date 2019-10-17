@@ -852,15 +852,31 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
                 if (aFluid != null) {
                     Collection<GT_Recipe>
                             tRecipes = mRecipeFluidMap.get(aFluid.getFluid());
-                    if (tRecipes != null) for (GT_Recipe tRecipe : tRecipes)
-                        if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs))
-                            return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    if (tRecipes != null) {
+                    	// for (GT_Recipe tRecipe : tRecipes) {
+                        // if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs))
+                        //     return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    	// }
+                    	
+                    	final ItemStack[] finalAInputs = aInputs;
+                    	
+                    	Optional<GT_Recipe> result = tRecipes.parallelStream().filter(
+                    			tRecipe -> tRecipeForParallelCondition(tRecipe, aDontCheckStackSizes, aFluids, finalAInputs)).findFirst();
+                    	
+                    	if(result.isPresent() && result != null && result.get() != null) {
+                    		return result.get().mEnabled && aVoltage * mAmperage >= result.get().mEUt ? result.get() : null;
+                    	}
+                    }
                 }
 
             // And nothing has been found.
             return null;
         }
-
+        
+        public boolean tRecipeForParallelCondition(GT_Recipe tRecipe, boolean aDontCheckStackSizes, FluidStack[] aFluids, ItemStack... aInputs) {
+        	return !tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs);
+        }
+        
         protected GT_Recipe addToItemMap(GT_Recipe aRecipe) {
             for (ItemStack aStack : aRecipe.mInputs)
                 if (aStack != null) {
