@@ -245,7 +245,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 		if (!GT_Mod.gregtechproxy.ic2EnergySourceCompat)
 			return;
 		
-		if(isEnrgyEmmitersCashed == false) {
+		//if(isEnrgyEmmitersCashed == false) {
 			for (byte aSide = 0; aSide < 6; aSide++) {
 				if (isConnectedAtSide(aSide)) {
 					final TileEntity tTileEntity = aBaseMetaTileEntity.getTileEntityAtSide(aSide);
@@ -279,11 +279,11 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 					}
 				}
 			}
-		} else {
-			for(GT_MetaPipeEntity_CableEnergyEmmitor energySource : cableEnergyEmmiters) {
-				TryDrawEnergy(aBaseMetaTileEntity, energySource.energySource, energySource.aSide);
-			}
-		}
+		//} else {
+		//	for(GT_MetaPipeEntity_CableEnergyEmmitor energySource : cableEnergyEmmiters) {
+		//		TryDrawEnergy(aBaseMetaTileEntity, energySource.energySource, energySource.aSide);
+		//	}
+		//}
 		
 		isEnrgyEmmitersCashed = true;
 	}
@@ -858,7 +858,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 				mTransferredVoltageLast20 = 0;
 				mTransferredAmperageLast20 = 0;
 
-				if (needToCheck) {
+				/*if (needToCheck) {
 					if (checkDealy > 0) {
 						checkDealy -= 20;
 
@@ -869,9 +869,9 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 							checkConnection();
 						}
 					}
-				}
+				}*/
 
-				// checkConnection();
+				checkConnection();
 
 				// if (!GT_Mod.gregtechproxy.gt6Cable || mCheckConnections) checkConnections();
 			}
@@ -1066,7 +1066,7 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 	public void onExplosion() {
 		// TODO Auto-generated method stub
 		super.onExplosion();
-		checkConnection(CONNECTION_DELAY);
+		//checkConnection(CONNECTION_DELAY);
 	}
 
 	@Override

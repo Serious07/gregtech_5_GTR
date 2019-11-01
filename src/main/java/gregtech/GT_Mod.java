@@ -592,7 +592,7 @@ public class GT_Mod implements IGT_Mod {
 
     @Mod.EventHandler
     public void onLoad(FMLInitializationEvent aEvent) {
-    	MinecraftForge.EVENT_BUS.register(new GT_MetaPipeEntity_CableBlockPlacedDestryed());
+    	//MinecraftForge.EVENT_BUS.register(new GT_MetaPipeEntity_CableBlockPlacedDestryed());
     	
     	if (GregTech_API.sLoadStarted) {
             return;
