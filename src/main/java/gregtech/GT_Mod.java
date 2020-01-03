@@ -751,7 +751,7 @@ public class GT_Mod implements IGT_Mod {
                 e.printStackTrace(GT_Log.err);
             }
         }
-        if (Loader.isModLoaded(MOD_ID_AE)) {
+        if (Loader.isModLoaded("appliedenergistics2")) {
 			GT_MetaTileEntity_DigitalChestBase.registerAEIntegration();
         }	    
         String tName = "";	    
