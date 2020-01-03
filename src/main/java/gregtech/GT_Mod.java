@@ -57,6 +57,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.commons.lang3.StringUtils;
+import static gregtech.api.enums.GT_Values.MOD_ID_AE;
 
 import java.io.*;
 import java.util.*;
@@ -751,7 +752,7 @@ public class GT_Mod implements IGT_Mod {
                 e.printStackTrace(GT_Log.err);
             }
         }
-        if (Loader.isModLoaded("appliedenergistics2")) {
+        if (Loader.isModLoaded(MOD_ID_AE)) {
 			GT_MetaTileEntity_DigitalChestBase.registerAEIntegration();
         }	    
         String tName = "";	    
