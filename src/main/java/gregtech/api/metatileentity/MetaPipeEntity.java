@@ -813,7 +813,7 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
     	
     	/*if(needDisconnect) {
     		if(this instanceof IMetaTileEntityCable) {
-                // Перепроверить и пересобрать цепочку проводов
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 Iterator it = GT_MetaPipeEntity_Cable.startCableCash.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry pair = (Map.Entry)it.next();
@@ -864,4 +864,5 @@ public abstract class MetaPipeEntity implements IMetaTileEntity, IConnectable {
 
 	public boolean canConnect(byte aSide, TileEntity tTileEntity) { return false; }
 	public boolean getGT6StyleConnection() { return false; }
+	public boolean shouldJoinIc2Enet() { return false; }
 }

@@ -915,4 +915,6 @@ public abstract class MetaTileEntity implements IMetaTileEntity {
     public String getAlternativeModeText(){
     	return "";
     }
+    
+    public boolean shouldJoinIc2Enet() { return false; }
 }
