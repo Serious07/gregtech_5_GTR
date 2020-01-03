@@ -26,6 +26,7 @@ import gregtech.common.entities.GT_Entity_Arrow_Potion;
 import gregtech.common.items.armor.components.LoadArmorComponents;
 import gregtech.common.items.behaviors.Behaviour_DataOrb;
 import gregtech.common.tileentities.machines.basic.GT_MetaTileEntity_Massfabricator;
+import gregtech.common.tileentities.storage.GT_MetaTileEntity_DigitalChestBase;
 import gregtech.loaders.bartworksHandler.BacteriaRegistry;
 import gregtech.loaders.load.GT_CoverBehaviorLoader;
 import gregtech.loaders.load.GT_FuelLoader;
@@ -750,7 +751,10 @@ public class GT_Mod implements IGT_Mod {
                 e.printStackTrace(GT_Log.err);
             }
         }
-        String tName = "";
+        if (Loader.isModLoaded(MOD_ID_AE)) {
+			GT_MetaTileEntity_DigitalChestBase.registerAEIntegration();
+        }	    
+        String tName = "";	    
         if (GregTech_API.sRecipeFile.get(ConfigCategories.Recipes.disabledrecipes, aTextIC2 + (tName = "blastfurnace"), true)) {
             GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getIC2Item(tName, 1L));
         }
