@@ -314,7 +314,7 @@ public abstract class GT_MetaGenerated_Tool extends GT_MetaBase_Item implements 
         if (tStats != null && tStats.canBlock()) return EnumAction.block;
         return EnumAction.none;
     }
-
+/* Если нужно будет, то можно включить через конфиг старую механику без генерации этих инструментов и т.д без прочности. Пока просто секцию закоментил.
     @Override
     @SideOnly(Side.CLIENT)
     public final void getSubItems(Item var1, CreativeTabs aCreativeTab, List aList) {
@@ -324,6 +324,20 @@ public abstract class GT_MetaGenerated_Tool extends GT_MetaBase_Item implements 
                 isItemStackUsable(tStack);
                 aList.add(tStack);
             }
+    }
+*/
+    @Override
+    @SideOnly(Side.CLIENT)
+    public final void getSubItems(Item var1, CreativeTabs aCreativeTab, List aList) {
+        for (int i = 0; i < 32766; i += 2) {
+            if (getToolStats(new ItemStack(this, 1, i)) != null) {
+                ItemStack tStack = new ItemStack(this, 1, i);
+                isItemStackUsable(tStack);
+                aList.add(tStack);
+                aList.add(getToolWithStats(i,1,Materials.Neutronium,Materials.Neutronium,null));
+            }
+
+        }
     }
 
     @Override
