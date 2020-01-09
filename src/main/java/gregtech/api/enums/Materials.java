@@ -25,8 +25,8 @@ import java.util.*;
 import static gregtech.api.enums.GT_Values.M;
 
 public class Materials implements IColorModulationContainer, ISubTagContainer {
-    private static Materials[] MATERIALS_ARRAY = new Materials[]{};
-    private static final Map<String, Materials> MATERIALS_MAP = new LinkedHashMap<String, Materials>();
+    public static Materials[] MATERIALS_ARRAY = new Materials[]{};
+    public static final Map<String, Materials> MATERIALS_MAP = new LinkedHashMap<String, Materials>();
     public static final List<IMaterialHandler> mMaterialHandlers = new ArrayList<IMaterialHandler>();
 
     /**

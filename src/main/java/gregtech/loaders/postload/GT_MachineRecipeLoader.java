@@ -1960,6 +1960,7 @@ if(Loader.isModLoaded("Railcraft")){
         GT_Values.RA.addAutoclaveRecipe(Materials.SiliconDioxide.getDust(1), Materials.Water.getFluid(200L), 		Materials.Quartzite.getGems(1), 750,  2000, 24);
         GT_Values.RA.addAutoclaveRecipe(Materials.SiliconDioxide.getDust(1), GT_ModHandler.getDistilledWater(200L), Materials.Quartzite.getGems(1), 1000, 1500, 24);
 
+        addRecipesJanuary2020SonnuriumUpdateGTR();
         addRecipesApril2017ChemistryUpdate();
         addRecipesMay2017OilRefining();
 		addPyrometallurgicalRecipes();
@@ -3683,6 +3684,12 @@ if(Loader.isModLoaded("Railcraft")){
         
 	}
 	
+	private void addRecipesJanuary2020SonnuriumUpdateGTR(){
+		GT_Values.RA.addChemicalRecipe(Materials.Glowstone.getDust(2), Materials.Helium.getCells(4),
+				Materials.Glowstone.getMolten(144),  Materials.Sunnarium.getMolten(288),
+				Materials.Empty.getCells(4), 180);
+	}
+	
 	private void addRecipesApril2017ChemistryUpdate(){
         GT_Values.RA.addElectrolyzerRecipe(GT_Utility.getIntegratedCircuit(1),  GT_Values.NI,                Materials.CarbonDioxide.getGas(1000), Materials.Oxygen.getGas(2000), Materials.Carbon.getDust(1), GT_Values.NI,                 GT_Values.NI, GT_Values.NI, GT_Values.NI, GT_Values.NI, null, 300, 120);
         GT_Values.RA.addElectrolyzerRecipe(GT_Utility.getIntegratedCircuit(11), Materials.Empty.getCells(2), Materials.CarbonDioxide.getGas(1000), GT_Values.NF,                  Materials.Carbon.getDust(1), Materials.Oxygen.getCells(2), GT_Values.NI, GT_Values.NI, GT_Values.NI, GT_Values.NI, null, 300, 120);
@@ -4822,7 +4829,7 @@ if(Loader.isModLoaded("Railcraft")){
 				ItemList.Circuit_Silicon_Wafer2.get(4L), 
 				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.TungstenSteel, 2), 
 				GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polytetrafluoroethylene, 2), 
-				GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorHV, 4), 
+				GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.Gold, 4), 
 				ItemList.Circuit_Chip_LPIC.get(2L)},
 				
 				Materials.SolderingAlloy.getMolten(144), ItemList.Cover_SolarPanel_HV.get(1L), 120, 128, true);
@@ -4880,7 +4887,7 @@ if(Loader.isModLoaded("Railcraft")){
         			GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Chrome, 2), 
         			GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.Polybenzimidazole, 2), 
         			GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Silicon, 2), 
-        			GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorEV, 6), 
+        			GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.Titanium, 6), 
         			ItemList.Circuit_Chip_PIC.get(2L)},
         			
         			Materials.SolderingAlloy.getMolten(288), ItemList.Cover_SolarPanel_EV.get(1L), 240, 512, true);
@@ -4898,7 +4905,7 @@ if(Loader.isModLoaded("Railcraft")){
         			GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Iridium, 2), 
         			GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Polybenzimidazole, 2), 
         			GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Silicon, 4), 
-        			GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.SuperconductorIV, 8)},
+        			GT_OreDictUnificator.get(OrePrefixes.wireGt01, Materials.TungstenSteel, 8)},
         			
         			Materials.SolderingAlloy.getMolten(432), ItemList.Cover_SolarPanel_IV.get(1L), 360, 2048, true);
         	
@@ -4917,7 +4924,7 @@ if(Loader.isModLoaded("Railcraft")){
         		GT_OreDictUnificator.get(OrePrefixes.plateTriple, Materials.Osmiridium, 2), 
         		GT_OreDictUnificator.get(OrePrefixes.plateQuadruple, Materials.Polybenzimidazole, 2), 
         		GT_OreDictUnificator.get(OrePrefixes.plateQuintuple, Materials.Silicon, 6), 
-        		GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.SuperconductorLuV, 10),
+        		GT_OreDictUnificator.get(OrePrefixes.wireGt02, Materials.VanadiumGallium, 10),
         		ItemList.Circuit_Chip_UHPIC.get(2L)
         },
         new FluidStack[]{
@@ -4936,7 +4943,7 @@ if(Loader.isModLoaded("Railcraft")){
         		GT_OreDictUnificator.get(OrePrefixes.plateQuintuple, Materials.Polybenzimidazole, 2), 
         		GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Silicon, 6), 
         		GT_OreDictUnificator.get(OrePrefixes.plate, Materials.ElectrumFlux, 8), 
-        		GT_OreDictUnificator.get(OrePrefixes.wireGt04, Materials.SuperconductorZPM, 12),
+        		GT_OreDictUnificator.get(OrePrefixes.wireGt04, Materials.Naquadah, 12),
         		ItemList.Circuit_Chip_NPIC.get(4L)
         },
         new FluidStack[]{
@@ -4955,7 +4962,7 @@ if(Loader.isModLoaded("Railcraft")){
         		GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Polybenzimidazole, 2), 
         		GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Silicon, 8), 
         		GT_OreDictUnificator.get(OrePrefixes.plateDouble, Materials.ElectrumFlux, 8), 
-        		GT_OreDictUnificator.get(OrePrefixes.wireGt04, Materials.SuperconductorUV, 14),
+        		GT_OreDictUnificator.get(OrePrefixes.wireGt04, Materials.NaquadahAlloy, 14),
         		ItemList.Circuit_Chip_PPIC.get(6L)
         },
         new FluidStack[]{

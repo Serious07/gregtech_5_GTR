@@ -352,6 +352,8 @@ public class GT_Mod implements IGT_Mod {
         
         //GT_Config.troll = (Calendar.getInstance().get(2) + 1 == 4) && (Calendar.getInstance().get(5) >= 1) && (Calendar.getInstance().get(5) <= 2);
         Materials.init();
+       // Materials2.init();
+        
 
         GT_Log.out.println("GT_Mod: Saving Main Config");
         tMainConfig.save();
