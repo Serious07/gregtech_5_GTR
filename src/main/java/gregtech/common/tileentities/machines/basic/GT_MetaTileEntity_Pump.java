@@ -25,6 +25,7 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.IFluidHandler;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayDeque;
 import java.util.Iterator;
@@ -249,6 +250,18 @@ public class GT_MetaTileEntity_Pump extends GT_MetaTileEntity_Hatch {
                 }
                 getBaseMetaTileEntity().setActive(!this.mPumpList.isEmpty());
             }
+                if (this.mFluid != null && (aTick % 20 == 0)) {
+                // auto outputs on top every second or so
+                IFluidHandler tTank = aBaseMetaTileEntity.getITankContainerAtSide((byte)1); //1 is up.
+                if (tTank != null) {
+                    FluidStack tDrained = drain(1000, false);
+                    if (tDrained != null) {
+                        int tFilledAmount = tTank.fill(ForgeDirection.DOWN, tDrained, false);
+                        if (tFilledAmount > 0)
+                            tTank.fill(ForgeDirection.DOWN, drain(tFilledAmount, true), true);
+                    }
+                }
+            }                        
         }
     }
 

@@ -200,6 +200,9 @@ public class GT_Loader_OreDictionary
 
         GT_OreDictUnificator.registerOre(OrePrefixes.circuit, Materials.Basic, GT_ModHandler.getIC2Item("electronicCircuit", 1L));
         GT_OreDictUnificator.registerOre(OrePrefixes.circuit, Materials.Advanced, GT_ModHandler.getIC2Item("advancedCircuit", 1L));
+        //Register fertilizer Forestry and IC2
+        GT_OreDictUnificator.registerOre("dustFertilizer", GT_ModHandler.getModItem("IC2", "itemFertilizer", 1L,0));
+        GT_OreDictUnificator.registerOre("dustFertilizer", GT_ModHandler.getModItem("Forestry", "fertilizerCompound", 1L,0)); 
         
         GT_OreDictUnificator.registerOre(OrePrefixes.itemCasing, Materials.Copper, GT_ModHandler.getModItem("IC2", "itemCasing", 1L, 0));
         GT_OreDictUnificator.registerOre(OrePrefixes.itemCasing, Materials.Tin, GT_ModHandler.getModItem("IC2", "itemCasing", 1L, 1));

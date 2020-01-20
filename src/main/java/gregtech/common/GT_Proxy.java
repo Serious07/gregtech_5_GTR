@@ -75,6 +75,9 @@ import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.text.DateFormat;
 import java.util.*;
@@ -220,7 +223,8 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
     public boolean ic2EnergySourceCompat = true;
     public boolean costlyCableConnection = false;
     public boolean mMoreComplicatedChemicalRecipes = false;
-	public boolean mHardRadonRecipe = true;
+    public boolean mHardRadonRecipe = true;
+    public boolean disassemblerRecipeMapOn = false;	
     
     public GT_Proxy() {
         GameRegistry.registerFuelHandler(this);
@@ -1792,7 +1796,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         GregTech_API.sUnification.mConfig.save();
         GT_Recipe.reInit();
     }
-
+/* Оставил старый код на случай включения его через конфиг.
     public void activateOreDictHandler() {
         this.mOreDictActivated = true;
         ProgressManager.ProgressBar progressBar = ProgressManager.push("Register materials", mEvents.size());
@@ -1804,7 +1808,29 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
         }
         ProgressManager.pop(progressBar);
     }
+*/
+    public void activateOreDictHandler() {
+    	final Logger GT_FML_LOGGER = LogManager.getLogger("GregTech");
+        this.mOreDictActivated = true;
+        ProgressManager.ProgressBar progressBar = ProgressManager.push("Register materials", mEvents.size());
+        int sizeStep = mEvents.size()/20-1;
+        int size = 5;
+        OreDictEventContainer tEvent;
+        for (Iterator i$ = this.mEvents.iterator(); i$.hasNext(); registerRecipes(tEvent)) {
+            tEvent = (OreDictEventContainer) i$.next();
 
+            sizeStep--;
+            progressBar.step(tEvent.mMaterial == null ? "" : tEvent.mMaterial.toString());
+            if( sizeStep == 0 )
+                {
+                    GT_FML_LOGGER.info("Baking : " + size + "%", new Object[0]);
+                    sizeStep = mEvents.size()/20-1;
+                    size += 5;
+                }
+        }
+        ProgressManager.pop(progressBar);
+    }	
+	
     public static final HashMap<Integer,HashMap<ChunkCoordIntPair,int []>> dimensionWiseChunkData = new HashMap<>(16);//stores chunk data that is loaded/saved
     public static final HashMap<Integer,GT_Pollution> dimensionWisePollution = new HashMap<>(16);//stores GT_Polluttors objects
 	public static final byte GTOIL=3,GTOILFLUID=2,GTPOLLUTION=1,GTMETADATA=0,NOT_LOADED=0,LOADED=1;//consts
