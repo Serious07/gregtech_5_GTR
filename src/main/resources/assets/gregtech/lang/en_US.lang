@@ -39,6 +39,8 @@ GT5U.multiblock.problems=Problems
 GT5U.multiblock.mei=Max Energy Income
 GT5U.multiblock.usage=Probably uses
 
+gt.recipe.farm=Tree farm
+
 item.gregtech:modulararmor_helmet.name=Basic Modular Armor Helmet
 item.gregtech:modulararmor_chestplate.name=Basic Modular Armor Chestplate
 item.gregtech:modulararmor_leggings.name=Basic Modular Armor Leggings

@@ -1366,7 +1366,21 @@ public class GT_Loader_MetaTileEntities implements Runnable {
         
         ItemList.Distillation_Tower.set(new GT_MetaTileEntity_DistillationTower(1126, "multimachine.distillationtower", "Distillation Tower").getStackForm(1L));
         GT_ModHandler.addCraftingRecipe(ItemList.Distillation_Tower.get(1L, new Object[0]), bitsd, new Object[]{"CBC", "FMF", "CBC", 'M', ItemList.Hull_EV, 'B', OrePrefixes.pipeLarge.get(Materials.StainlessSteel), 'C', OrePrefixes.circuit.get(Materials.Data), 'F', ItemList.Electric_Pump_EV});
-
+        
+        // Tree farm
+        ItemList.Machine_Multi_Farm.set(new GT_MetaTileEntity_Farm(13001, "multimachine.farm", "Multiblock tree Farm").getStackForm(1L));
+        GT_ModHandler.addCraftingRecipe(ItemList.Machine_Multi_Farm.get(1L),
+				bitsd,
+				new Object[]{
+						"ROR", "CHC", "PWP",
+						'H', ItemList.Hull_MV,
+						'W', OrePrefixes.cableGt02.get(Materials.Copper),
+						'C', OrePrefixes.circuit.get(Materials.Good),
+						'P', ItemList.Electric_Pump_MV,
+						'R', ItemList.Robot_Arm_MV,
+						'O', OreDictNames.craftingDiamondBlade
+				});
+        
         ItemList.LargeSteamTurbine.set(new GT_MetaTileEntity_LargeTurbine_Steam(1131, "multimachine.largeturbine", "Large Steam Turbine").getStackForm(1L));
         ItemList.LargeGasTurbine.set(new GT_MetaTileEntity_LargeTurbine_Gas(1151, "multimachine.largegasturbine", "Large Gas Turbine").getStackForm(1L));
         ItemList.LargeHPSteamTurbine.set(new GT_MetaTileEntity_LargeTurbine_HPSteam(1152, "multimachine.largehpturbine", "Large HP Steam Turbine").getStackForm(1L));

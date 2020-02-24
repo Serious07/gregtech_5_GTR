@@ -71,7 +71,6 @@ import codechicken.multipart.asm.StackAnalyser.Const;
 import static gregtech.api.enums.GT_Values.VN;
 
 public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTileEntityCable {
-<<<<<<< HEAD
 	public final float mThickNess;
 	public final Materials mMaterial;
 	public final long mCableLossPerMeter, mAmperage, mVoltage;
@@ -708,7 +707,6 @@ public class GT_MetaPipeEntity_Cable extends MetaPipeEntity implements IMetaTile
 		}
 		return rUsedAmperes;
 	}
-<<<<<<< HEAD
 
 	public long insertEnergyInto(TileEntity tTileEntity, byte tSide, long aVoltage, long aAmperage) {
 		if (aAmperage == 0 || tTileEntity == null)

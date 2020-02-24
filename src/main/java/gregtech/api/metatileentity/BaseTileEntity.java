@@ -471,10 +471,10 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
     }
 
     protected void joinEnet() {
-    	System.out.println("start joinEnet x: " + xCoord + " y: " + yCoord + " z:" + zCoord);
+    	//System.out.println("start joinEnet x: " + xCoord + " y: " + yCoord + " z:" + zCoord);
     	
-    	System.out.println("joinedIc2Enet: " + joinedIc2Enet);
-    	System.out.println("!shouldJoinIc2Enet(): " + !shouldJoinIc2Enet());
+    	//System.out.println("joinedIc2Enet: " + joinedIc2Enet);
+    	//System.out.println("!shouldJoinIc2Enet(): " + !shouldJoinIc2Enet());
     	
         if (joinedIc2Enet || !shouldJoinIc2Enet()) return;
 
@@ -485,7 +485,7 @@ public abstract class BaseTileEntity extends TileEntity implements IHasWorldObje
             joinedIc2Enet = true;
         }
         
-        System.out.println("finish joinEnet x: " + xCoord + " y: " + yCoord + " z:" + zCoord);
+        //System.out.println("finish joinEnet x: " + xCoord + " y: " + yCoord + " z:" + zCoord);
     }
 
     protected void leaveEnet() {

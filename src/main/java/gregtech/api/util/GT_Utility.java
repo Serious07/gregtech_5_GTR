@@ -2036,7 +2036,7 @@ public class GT_Utility {
             result += (result.isEmpty() ? "" : "|") + s;
         return result;
     }
-
+    
     public static ItemStack getIntegratedCircuit(int config){
     	return ItemList.Circuit_Integrated.getWithDamage(0, config, new Object[0]);
     }

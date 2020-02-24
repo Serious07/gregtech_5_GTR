@@ -7,6 +7,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import gregtech.GT_Mod;
 import gregtech.api.GregTech_API;
 import gregtech.api.enums.*;
+import gregtech.api.items.GT_FarmScheme_Item;
 import gregtech.api.items.GT_Generic_Item;
 import gregtech.api.items.GT_RadioactiveCellIC_Item;
 import gregtech.api.metatileentity.BaseMetaPipeEntity;
@@ -131,6 +132,14 @@ public class GT_Loader_Item_Block_And_Fluid
         ItemList.ThoriumCell_2.set(new GT_RadioactiveCellIC_Item("Double_Thoriumcell", "Dual Fuel Rod (Thorium)", 2, 50000, 0.4F, 0, 0.25F, ItemList.Depleted_Thorium_2.get(1, new Object[0]),false));
         GT_ModHandler.addCraftingRecipe(ItemList.ThoriumCell_2.get(1L, new Object[0]), GT_ModHandler.RecipeBits.BUFFERED | GT_ModHandler.RecipeBits.NOT_REMOVABLE, new Object[]{"RPR", "   ", "   ", 'R', ItemList.ThoriumCell_1, 'P', OrePrefixes.plate.get(Materials.Iron)});
 
+        ItemList.OakScheme.set(new GT_FarmScheme_Item("Farm_scheme_oak", "Farm oak scheme", "Using in wooden farm as a filter"));
+        ItemList.AcaciaScheme.set(new GT_FarmScheme_Item("Farm_scheme_acacia", "Farm acacia scheme", "Using in wooden farm as a filter"));
+        ItemList.BirchScheme.set(new GT_FarmScheme_Item("Farm_scheme_birch", "Farm birch scheme", "Using in wooden farm as a filter"));
+        ItemList.DarkOakScheme.set(new GT_FarmScheme_Item("Farm_scheme_dark_oak", "Farm dark oak scheme", "Using in wooden farm as a filter"));
+        ItemList.JungleScheme.set(new GT_FarmScheme_Item("Farm_scheme_jungle", "Farm jungle scheme", "Using in wooden farm as a filter"));
+        ItemList.SpruceScheme.set(new GT_FarmScheme_Item("Farm_scheme_spruce", "Farm spruce scheme", "Using in wooden farm as a filter"));
+        ItemList.RubberScheme.set(new GT_FarmScheme_Item("Farm_scheme_rubber", "Farm rubber scheme", "Using in wooden farm as a filter"));
+        
         ItemList.ThoriumCell_4.set(new GT_RadioactiveCellIC_Item("Quad_Thoriumcell", "Quad Fuel Rod (Thorium)", 4, 50000, 0.4F, 0, 0.25F, ItemList.Depleted_Thorium_4.get(1, new Object[0]),false));
         GT_ModHandler.addCraftingRecipe(ItemList.ThoriumCell_4.get(1L, new Object[0]), GT_ModHandler.RecipeBits.BUFFERED | GT_ModHandler.RecipeBits.NOT_REMOVABLE, new Object[]{"RPR", "CPC", "RPR", 'R', ItemList.ThoriumCell_1, 'P', OrePrefixes.plate.get(Materials.Iron), 'C', OrePrefixes.plate.get(Materials.Copper)});
 

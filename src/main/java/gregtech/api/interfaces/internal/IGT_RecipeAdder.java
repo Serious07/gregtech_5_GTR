@@ -706,7 +706,24 @@ public interface IGT_RecipeAdder {
      * @param aOutput2 can be null
      */
     public boolean addUniversalDistillationRecipe(FluidStack aInput, FluidStack[] aOutputs, ItemStack aOutput2, int aDuration, int aEUt);
-
+    
+    /**
+     * 
+     * Adds Tree Farm Recipe
+     * 
+     * @param aInput1
+     * @param aInput2
+     * @param aInput3
+     * @param aFluidInput
+     * @param aFluidOutput
+     * @param aOutputs
+     * @param aChances
+     * @param aDuration
+     * @param aEUt
+     * @return
+     */
+    public boolean addFarmRecipe(ItemStack aInput1, ItemStack aInput2, ItemStack aInput3, FluidStack aFluidInput, FluidStack aFluidOutput, ItemStack[] aOutputs, int[] aChances, int aDuration, int aEUt);
+    
     /**
      * Adds Pyrolyse Recipe
      *

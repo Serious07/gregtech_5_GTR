@@ -698,7 +698,7 @@ public enum ItemList implements IItemContainer {
     Circuit_Microprocessor, Circuit_Processor, Circuit_Computer, Circuit_Nanoprocessor, Circuit_Nanocomputer, Circuit_Elitenanocomputer, Circuit_Quantumprocessor, Circuit_Quantumcomputer, Circuit_Masterquantumcomputer, 
     Circuit_Quantummainframe, Circuit_Crystalprocessor, Circuit_Crystalcomputer, Circuit_Ultimatecrystalcomputer, Circuit_Crystalmainframe, Circuit_Neuroprocessor, Circuit_Wetwarecomputer, Circuit_Wetwaresupercomputer, Circuit_Wetwaremainframe, Circuit_Parts_RawCrystalChip, Circuit_Parts_RawMCrystalChip,
     Machine_LV_CircuitAssembler, Machine_MV_CircuitAssembler, Machine_HV_CircuitAssembler, Machine_EV_CircuitAssembler, Machine_IV_CircuitAssembler, Machine_LuV_CircuitAssembler, Machine_ZPM_CircuitAssembler, Machine_UV_CircuitAssembler, Machine_UHV_CircuitAssembler, Machine_UEV_CircuitAssembler, Machine_UIV_CircuitAssembler, Machine_UMV_CircuitAssembler, Machine_UXV_CircuitAssembler, Machine_OPV_CircuitAssembler, Circuit_Integrated_Good, 
-    Machine_IV_LightningRod, Machine_HV_LightningRod, Machine_EV_LightningRod, Machine_LuV_LightningRod, Machine_ZPM_LightningRod, Machine_UV_LightningRod,
+    Machine_IV_LightningRod, Machine_HV_LightningRod, Machine_EV_LightningRod, Machine_LuV_LightningRod, Machine_ZPM_LightningRod, Machine_UV_LightningRod, Machine_Multi_Farm,
     
     Hatch_Dynamo_UEV, Hatch_Dynamo_UIV, Hatch_Dynamo_UMV, Hatch_Dynamo_UXV, Hatch_Dynamo_OPV,
 	Hatch_Energy_UEV, Hatch_Energy_UIV, Hatch_Energy_UMV, Hatch_Energy_UXV, Hatch_Energy_OPV,
@@ -780,6 +780,8 @@ public enum ItemList implements IItemContainer {
 	Machine_DigitalTransformer_EV, Machine_DigitalTransformer_IV, Machine_DigitalTransformer_LuV, Machine_DigitalTransformer_ZPM, Machine_DigitalTransformer_UV, Machine_DigitalTransformer_UHV, Machine_DigitalTransformer_UEV,
 	Machine_LV_WireAssembler, Machine_MV_WireAssembler, Machine_HV_WireAssembler, Machine_EV_WireAssembler, Machine_IV_WireAssembler, Machine_LuV_WireAssembler, Machine_ZPM_WireAssembler, Machine_UV_WireAssembler, Machine_UHV_WireAssembler, Machine_UEV_WireAssembler, Machine_UIV_WireAssembler, Machine_UMV_WireAssembler, Machine_UXV_WireAssembler, Machine_OPV_WireAssembler, 
     
+	OakScheme, DarkOakScheme, JungleScheme, AcaciaScheme, SpruceScheme, BirchScheme, RubberScheme,
+	
 	AdsorptionFilter, AdsorptionFilterCasing, AdsorptionFilterDirty, Machine_Multi_AirFilter, Casing_AirFilter, Casing_AirFilter_Vent,
 	VOLUMETRIC_FLASK;
     
