@@ -177,7 +177,6 @@ public abstract class GT_MetaTileEntity_LargeTurbine extends GT_MetaTileEntity_M
             	   (int)((long)mEUt * (long)mEfficiency / 10000L)){
             		String playerName = getBaseMetaTileEntity().getOwnerName();
             		EntityPlayer player = getBaseMetaTileEntity().getWorld().getPlayerEntityByName(playerName);
-            		if(player != null){
             		player.addChatComponentMessage(
             				new ChatComponentText(EnumChatFormatting.RED + "Boom! Just save you from explosion!"));
     				player.addChatComponentMessage(
@@ -188,7 +187,6 @@ public abstract class GT_MetaTileEntity_LargeTurbine extends GT_MetaTileEntity_M
             				new ChatComponentText(EnumChatFormatting.GREEN + "Hatch voltage: " + this.mDynamoHatches.get(0).getBaseMetaTileEntity().getOutputVoltage()));
 					player.addChatComponentMessage(
 	        				new ChatComponentText(EnumChatFormatting.GOLD + "Teoretical voltage: " + newPower));
-            		}
             		
             		//explodeMultiblock();
             		stopMachine();
