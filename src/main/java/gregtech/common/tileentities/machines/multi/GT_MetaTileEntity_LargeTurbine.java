@@ -10,11 +10,14 @@ import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_MultiBlockB
 import gregtech.api.util.GT_Utility;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 import net.minecraftforge.fluids.FluidStack;
 
 import java.util.ArrayList;
@@ -170,8 +173,26 @@ public abstract class GT_MetaTileEntity_LargeTurbine extends GT_MetaTileEntity_M
             this.mMaxProgresstime = 1;
             this.mEfficiencyIncrease = (10);
             if(this.mDynamoHatches.size()>0){
-            	if(this.mDynamoHatches.get(0).getBaseMetaTileEntity().getOutputVoltage() < (int)((long)mEUt * (long)mEfficiency / 10000L)){
-            	explodeMultiblock();}
+            	if(this.mDynamoHatches.get(0).getBaseMetaTileEntity().getOutputVoltage() < 
+            	   (int)((long)mEUt * (long)mEfficiency / 10000L)){
+            		String playerName = getBaseMetaTileEntity().getOwnerName();
+            		EntityPlayer player = getBaseMetaTileEntity().getWorld().getPlayerEntityByName(playerName);
+            		if(player != null){
+            		player.addChatComponentMessage(
+            				new ChatComponentText(EnumChatFormatting.RED + "Boom! Just save you from explosion!"));
+    				player.addChatComponentMessage(
+    						new ChatComponentText(EnumChatFormatting.GREEN + "Position: x: " + getBaseMetaTileEntity().getXCoord() +
+    																		 " y: " + getBaseMetaTileEntity().getYCoord() +
+    																		 " z: " + getBaseMetaTileEntity().getZCoord()));
+            		player.addChatComponentMessage(
+            				new ChatComponentText(EnumChatFormatting.GREEN + "Hatch voltage: " + this.mDynamoHatches.get(0).getBaseMetaTileEntity().getOutputVoltage()));
+					player.addChatComponentMessage(
+	        				new ChatComponentText(EnumChatFormatting.GOLD + "Teoretical voltage: " + newPower));
+            		}
+            		
+            		//explodeMultiblock();
+            		stopMachine();
+            	}
             }
             return true;
         }
