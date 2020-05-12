@@ -10,6 +10,7 @@ import gregtech.api.interfaces.tileentity.IEnergyConnected;
 import gregtech.api.interfaces.tileentity.IGregTechTileEntity;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_BasicMachine;
 import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Hatch;
+import gregtech.api.metatileentity.implementations.GT_MetaTileEntity_Transformer;
 import gregtech.api.net.GT_Packet_TileEntity;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.util.*;
@@ -1320,8 +1321,15 @@ public class BaseMetaTileEntity extends BaseTileEntity implements IGregTechTileE
                             if (mWorks) disableWorking();
                             else enableWorking();{
                             	String tChat = trans("090","Machine Processing: ") + (isAllowedToWork() ? trans("088","Enabled") : trans("087","Disabled"));
-                            	if(getMetaTileEntity() !=null && getMetaTileEntity().hasAlternativeModeText())
-                            		tChat = getMetaTileEntity().getAlternativeModeText();
+                            	if(getMetaTileEntity() !=null && getMetaTileEntity().hasAlternativeModeText()) {
+                            		IMetaTileEntity machine = getMetaTileEntity();
+                            		
+                            		tChat = machine.getAlternativeModeText();
+                            	
+                            		if(machine instanceof GT_MetaTileEntity_Transformer) {
+                            			setActive(!mActive);
+                            		}
+                            	}
                             GT_Utility.sendChatToPlayer(aPlayer, tChat);}
                             GT_Utility.sendSoundToPlayers(worldObj, GregTech_API.sSoundList.get(101), 1.0F, -1, xCoord, yCoord, zCoord);
                         }
