@@ -140,10 +140,10 @@ public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachi
     public long maxAmperesIn() {
         return getBaseMetaTileEntity().isAllowedToWork() ? 1 : V[mTier + 1] / V[mTier];
     }
-
+    
     @Override
     public void onPostTick(IGregTechTileEntity aBaseMetaTileEntity, long aTick) {
-        if (aBaseMetaTileEntity.isServerSide() && GregTech_API.mInputRF) {
+        if (aBaseMetaTileEntity.isServerSide()) {
             aBaseMetaTileEntity.setActive(aBaseMetaTileEntity.isAllowedToWork());
             for (byte i = 0; i < 6 && aBaseMetaTileEntity.getStoredEU() < aBaseMetaTileEntity.getEUCapacity(); i++)
                 if (aBaseMetaTileEntity.inputEnergyFrom(i)) {
@@ -160,11 +160,11 @@ public class GT_MetaTileEntity_Transformer extends GT_MetaTileEntity_TieredMachi
                         long tEU = (long) ((IEnergyProvider) tTileEntity).extractEnergy(ForgeDirection.getOrientation(GT_Utility.getOppositeSide(i)), (int) maxEUInput() * 100 / GregTech_API.mRFtoEU, false);
                         tEU = tEU * GregTech_API.mRFtoEU / 100;
                         aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
-                    } else if (tTileEntity instanceof IEnergyStorage && ((IEnergyStorage) tTileEntity).extractEnergy(1, true) == 1) {
+                    } else if (GregTech_API.mInputRF && tTileEntity instanceof IEnergyStorage && ((IEnergyStorage) tTileEntity).extractEnergy(1, true) == 1) {
                         long tEU = (long) ((IEnergyStorage) tTileEntity).extractEnergy((int) maxEUInput() * 100 / GregTech_API.mRFtoEU, false);
                         tEU = tEU * GregTech_API.mRFtoEU / 100;
                         aBaseMetaTileEntity.injectEnergyUnits((byte) 6, Math.min(tEU, maxEUInput()), 1);
-                    } else if (GregTech_API.meIOLoaded && tTileEntity instanceof IPowerContainer && ((IPowerContainer) tTileEntity).getEnergyStored() > 0) {
+                    } else if (GregTech_API.mInputRF && GregTech_API.meIOLoaded && tTileEntity instanceof IPowerContainer && ((IPowerContainer) tTileEntity).getEnergyStored() > 0) {
                         int storedRF = ((IPowerContainer) tTileEntity).getEnergyStored();
                         int extractRF = (int) maxEUInput() * 100 / GregTech_API.mRFtoEU;
                         long tEU = 0;
