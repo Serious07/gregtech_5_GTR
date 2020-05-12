@@ -1092,7 +1092,7 @@ public class BaseMetaTileEntity extends BaseTileEntity implements IGregTechTileE
         ITexture rIcon = getCoverTexture(aSide);
         if (rIcon != null) return new ITexture[]{rIcon};
         if (hasValidMetaTileEntity())
-            return mMetaTileEntity.getTexture(this, aSide, mFacing, (byte) (mColor - 1), mActive, getOutputRedstoneSignal(aSide) > 0);
+            return mMetaTileEntity.getTexture(this, aSide, mFacing, (byte) (mColor - 1), !mActive, getOutputRedstoneSignal(aSide) > 0);
         return Textures.BlockIcons.ERROR_RENDERING;
     }
 
