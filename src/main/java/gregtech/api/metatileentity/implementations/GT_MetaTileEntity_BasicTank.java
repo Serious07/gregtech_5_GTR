@@ -262,8 +262,4 @@ public abstract class GT_MetaTileEntity_BasicTank extends GT_MetaTileEntity_Tier
     	//Do nothing
     }
 
-	public ITexture[] getSides(byte aColor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
