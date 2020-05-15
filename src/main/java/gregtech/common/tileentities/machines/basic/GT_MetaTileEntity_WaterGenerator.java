@@ -185,11 +185,11 @@ public class GT_MetaTileEntity_WaterGenerator extends GT_MetaTileEntity_Hatch {
     }
 
     public int getCapacity() {
-        return 100 * (1 << this.mTier - 1) * (1 << this.mTier - 1) * 20;
+        return 512 * (1 << this.mTier - 1) * (1 << this.mTier - 1) * 20;
     }
 
     public int getTankPressure() {
-        return 2147483647;
+        return 1638400;
     }
 
     public boolean isFluidChangingAllowed() {
