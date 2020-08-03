@@ -199,10 +199,6 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
                 case 5:
                     GT_Recipe_Map.sMagicFuels.addRecipe(this);
                     break;
-                // Semifluid Generator
-                case 6:
-                    GT_Recipe_Map.sSemifluidFuels.addRecipe(this);
-                    break;
                 // Fluid Generator. Usually 3. Every wrong Type ends up in the Semifluid Generator
                 default:
                     GT_Recipe_Map.sDenseLiquidFuels.addRecipe(this);
@@ -590,7 +586,6 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
         public static final GT_Recipe_Map sMassFabFakeRecipes = new GT_Recipe_Map(new HashSet<GT_Recipe>(10), "gt.recipe.massfab", "Mass Fabrication", null, RES_PATH_GUI + "basicmachines/Massfabricator", 1, 0, 1, 0, 1, E, 1, E, true, true);
         public static final GT_Recipe_Map sMultiblockCentrifugeRecipes = new GT_Recipe_Map_MultiblockCentrifugeRecipe();
         public static final GT_Recipe_Map sMultiblockElectrolyzerRecipes = new GT_Recipe_Map_MultiblockElectrolyzerRecipe();
-        public static final GT_Recipe_Map_Fuel sSemifluidFuels = new GT_Recipe_Map_Fuel(new HashSet<GT_Recipe>(20), "gt.recipe.semifluidgeneratorfuel", "Semifluid Generator Fuel", null, RES_PATH_GUI + "basicmachines/Default", 1, 1, 0, 0, 1, "Fuel Value: ", 1000, " EU", true, true);
         
         // Trying to add Tree Farm
         public static final GT_Recipe_Map sFarmRecipes = new GT_Recipe_Map(new HashSet<GT_Recipe>(1000), "gt.recipe.farm", "Tree Farm Factory", null, RES_PATH_GUI + "basicmachines/Default", 6, 6, 0, 0, 1, E, 1, E, true, true);
