@@ -576,8 +576,8 @@ public class GT_Utility {
                         for (int j = 0; j < tPutSlots.length; j++) {
                              if (isAllowedToPutIntoSlot((IInventory) aTileEntity2, tPutSlots[j], aPutTo, tGrabStack, aMaxTargetStackSize)) {
                                  tMovedItemCount += moveStackFromSlotAToSlotB(aTileEntity1, (IInventory) aTileEntity2, tGrabSlots[i], tPutSlots[j], aMaxTargetStackSize, aMinTargetStackSize, (byte) (aMaxMoveAtOnce - tMovedItemCount), aMinMoveAtOnce);
-                                if (tMovedItemCount >= aMaxMoveAtOnce) {
-                                	return tMovedItemCount;
+                                 if (tMovedItemCount >= aMaxMoveAtOnce) {
+                                     return tMovedItemCount;
                                 }
                             }
                         }
