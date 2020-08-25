@@ -26,8 +26,10 @@ import static gregtech.api.enums.GT_Values.M;
 
 public class Materials implements IColorModulationContainer, ISubTagContainer {
     public static Materials[] MATERIALS_ARRAY = new Materials[]{};
+    public static Materials2[] MATERIALS2_ARRAY = new Materials2[]{};
     public static final Map<String, Materials> MATERIALS_MAP = new LinkedHashMap<String, Materials>();
     public static final List<IMaterialHandler> mMaterialHandlers = new ArrayList<IMaterialHandler>();
+	
 
     /**
      * This is for keeping compatibility with addons mods (Such as TinkersGregworks etc) that looped over the old materials enum
