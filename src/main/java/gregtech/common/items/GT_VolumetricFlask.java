@@ -118,6 +118,7 @@ public class GT_VolumetricFlask extends GT_Generic_Item implements IFluidContain
         return Math.min(getMaxCapacity(), capacity);
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister aIconRegister) {
         super.registerIcons(aIconRegister);
