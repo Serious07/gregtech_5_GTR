@@ -44,6 +44,7 @@ public class GT_MetaTileEntity_TinyWormHole extends GT_MetaTileEntity_MultiBlock
         		"Tiny WORMHOLE on The Earth!!!",
                 "Size(WxHxD): 5x7x5",
                 "67 x Robust Naquadah Alloy Machine Casing",
+                "56 x Reinforced Glass",
                 "20 x Dyson Ring Casing",
                 "18 x Fusion Casing MKII",
                 "9 x Intermix Chamber Casing",

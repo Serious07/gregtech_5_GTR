@@ -16,6 +16,7 @@ import gregtech.api.objects.GT_RenderedTexture;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_Utility;
 import gregtech.common.GT_Pollution;
+import gregtech.common.gui.GT_GUIContainer_Tesseract;
 import gregtech.common.items.GT_MetaGenerated_Tool_01;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -52,7 +53,7 @@ public class GT_MetaTileEntity_Tesseract extends GT_MetaTileEntity_MultiBlockBas
                 "1/1 x Input/Output Hatch (UHV or better)",
                 "1/1 x Input/Output Bus (UHV or better)",
                 "2 x Energy Hatch (UHV or better)",
-                "1 x Maintenance Hatch"};
+                "1 x Auto Maintenance Hatch"};
     }
 
     @Override
@@ -71,7 +72,7 @@ public class GT_MetaTileEntity_Tesseract extends GT_MetaTileEntity_MultiBlockBas
     }
 
     public Object getClientGUI(int aID, InventoryPlayer aPlayerInventory, IGregTechTileEntity aBaseMetaTileEntity) {
-        return new GT_GUIContainer_MultiMachine(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "Tesseract.png");
+        return new GT_GUIContainer_Tesseract(aPlayerInventory, aBaseMetaTileEntity, getLocalName(), "Tesseract.png", mNEI);
     }
     
     @Override
