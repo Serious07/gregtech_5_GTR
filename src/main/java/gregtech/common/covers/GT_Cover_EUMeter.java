@@ -122,16 +122,6 @@ public class GT_Cover_EUMeter
         return aCoverVariable;
     }
 
-    private long getMinimumStoredEU() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	private long maxEUStorege() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 	public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         aCoverVariable = (aCoverVariable + (aPlayer.isSneaking()? -1 : 1)) % 12;
         if(aCoverVariable <0){aCoverVariable = 11;}
