@@ -1,5 +1,6 @@
 package gregtech.common.covers;
 
+import cpw.mods.fml.common.Loader;
 import gregtech.api.enums.GT_Values;
 import gregtech.api.gui.GT_GUICover;
 import gregtech.api.gui.widgets.GT_GuiIcon;
@@ -13,15 +14,22 @@ import gregtech.api.net.GT_Packet_TileEntityCover;
 import gregtech.api.util.GT_CoverBehavior;
 import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_Utility;
+import gtPlusPlus.xmod.gregtech.common.tileentities.machines.multi.storage.GregtechMetaTileEntity_PowerSubStationController;
 import ic2.api.item.IElectricItem;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.Fluid;
 
+
+
+
+
 public class GT_Cover_EUMeter
         extends GT_CoverBehavior {
-    public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
+
+
+	public int doCoverThings(byte aSide, byte aInputRedstone, int aCoverID, int aCoverVariable, ICoverable aTileEntity, long aTimer) {
         long tScale = 0L;
         if (aCoverVariable < 2) {
             tScale = aTileEntity.getUniversalEnergyCapacity() / 15L;
@@ -30,6 +38,24 @@ public class GT_Cover_EUMeter
             } else {
                 aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
             }
+            	
+            if (aTileEntity instanceof IGregTechTileEntity) {
+                IGregTechTileEntity tTileEntity = (IGregTechTileEntity) aTileEntity;
+                IMetaTileEntity mTileEntity = tTileEntity.getMetaTileEntity();
+                if (Loader.isModLoaded("miscutils")) {
+                    if (mTileEntity instanceof GregtechMetaTileEntity_PowerSubStationController) {
+                    	GregtechMetaTileEntity_PowerSubStationController buffer = (GregtechMetaTileEntity_PowerSubStationController) mTileEntity;
+                    	long tStored = aTileEntity.getStoredEU();
+                    	tScale = aTileEntity.getEUCapacity() / 15L;
+                        if (tScale > 0L) {
+                            aTileEntity.setOutputRedstoneSignal(aSide, aCoverVariable % 2 == 0 ? (byte) (int) (tStored / tScale) : (byte) (int) (15L - tStored / tScale));
+                        } else {
+                            aTileEntity.setOutputRedstoneSignal(aSide, (byte) (aCoverVariable % 2 == 0 ? 0 : 15));
+                        }
+                    }
+                }
+            }
+   
         } else if (aCoverVariable < 4) {
             tScale = aTileEntity.getEUCapacity() / 15L;
             if (tScale > 0L) {
@@ -96,7 +122,17 @@ public class GT_Cover_EUMeter
         return aCoverVariable;
     }
 
-    public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
+    private long getMinimumStoredEU() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private long maxEUStorege() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int onCoverScrewdriverclick(byte aSide, int aCoverID, int aCoverVariable, ICoverable aTileEntity, EntityPlayer aPlayer, float aX, float aY, float aZ) {
         aCoverVariable = (aCoverVariable + (aPlayer.isSneaking()? -1 : 1)) % 12;
         if(aCoverVariable <0){aCoverVariable = 11;}
         switch(aCoverVariable) {
