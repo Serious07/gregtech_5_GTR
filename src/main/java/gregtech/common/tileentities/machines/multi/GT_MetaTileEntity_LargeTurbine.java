@@ -51,19 +51,7 @@ public abstract class GT_MetaTileEntity_LargeTurbine extends GT_MetaTileEntity_M
     public boolean checkMachine(IGregTechTileEntity aBaseMetaTileEntity, ItemStack aStack) {
         byte tSide = getBaseMetaTileEntity().getBackFacing();
         if ((getBaseMetaTileEntity().getAirAtSideAndDistance(getBaseMetaTileEntity().getBackFacing(), 1)) && (getBaseMetaTileEntity().getAirAtSideAndDistance(getBaseMetaTileEntity().getBackFacing(), 2))) {
-            int tAirCount = 0;
-            for (byte i = -1; i < 2; i = (byte) (i + 1)) {
-                for (byte j = -1; j < 2; j = (byte) (j + 1)) {
-                    for (byte k = -1; k < 2; k = (byte) (k + 1)) {
-                        if (getBaseMetaTileEntity().getAirOffset(i, j, k)) {
-                            tAirCount++;
-                        }
-                    }
-                }
-            }
-            if (tAirCount != 10) {
-                return false;
-            }
+
             for (byte i = 2; i < 6; i = (byte) (i + 1)) {
                 IGregTechTileEntity tTileEntity;
                 if ((null != (tTileEntity = getBaseMetaTileEntity().getIGregTechTileEntityAtSideAndDistance(i, 2))) &&
