@@ -225,6 +225,7 @@ public class GT_Mod implements IGT_Mod {
         GregTech_API.sMachineThunderExplosions = tMainConfig.get("machines", "lightning_causes_explosions", true).getBoolean(false);
         GregTech_API.sConstantEnergy = tMainConfig.get("machines", "constant_need_of_energy", true).getBoolean(false);
         GregTech_API.sColoredGUI = tMainConfig.get("machines", "colored_guis_when_painted", true).getBoolean(false);
+        gregtechproxy.mAllowLargeTurbinAutomation = tMainConfig.get("machines","AllowLargeTurbinAutomation",true).getBoolean(false);
 
         GregTech_API.sTimber = tMainConfig.get(aTextGeneral, "timber_axe", true).getBoolean(true);
         GregTech_API.sDrinksAlwaysDrinkable = tMainConfig.get(aTextGeneral, "drinks_always_drinkable", false).getBoolean(false);
@@ -288,7 +289,6 @@ public class GT_Mod implements IGT_Mod {
         gregtechproxy.mLowGravProcessing = Loader.isModLoaded(GT_Values.MOD_ID_GC_CORE) && tMainConfig.get("general", "LowGravProcessing", true).getBoolean(true);
         gregtechproxy.mLowGravProcessingCircuits = Loader.isModLoaded(GT_Values.MOD_ID_GC_CORE) && tMainConfig.get("general", "LowGravProcessingCircuits", false).getBoolean(false);
         gregtechproxy.mGTPlusPlusHard = Loader.isModLoaded("miscutils") && tMainConfig.get("general", "GTPlusPlusHard", false).getBoolean(false);
-        gregtechproxy.mAllowLargeTurbinAutomation = tMainConfig.get("machines","AllowLargeTurbinAutomation",false).getBoolean(false);
         
         Calendar now = Calendar.getInstance();
         gregtechproxy.mAprilFool = GregTech_API.sSpecialFile.get(ConfigCategories.general, "AprilFool", now.get(Calendar.MONTH) == Calendar.APRIL && now.get(Calendar.DAY_OF_MONTH) == 1);
