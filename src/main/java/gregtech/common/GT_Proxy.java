@@ -222,6 +222,7 @@ public abstract class GT_Proxy implements IGT_Mod, IGuiHandler, IFuelHandler {
     public static final int GUI_ID_COVER_SIDE_BASE = 10; // Takes GUI ID 10 - 15
     public boolean mMoreComplicatedChemicalRecipes = false;
 	public boolean mHardRadonRecipe = true;
+	public boolean mAllowLargeTurbinAutomation = false;
     
     public GT_Proxy() {
         GameRegistry.registerFuelHandler(this);
