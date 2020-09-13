@@ -42,7 +42,7 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
                         long tMax = GT_MetaGenerated_Tool.getToolMaxDamage(tRotor);
                         long tCur = GT_MetaGenerated_Tool.getToolDamage(tRotor);
                         if (coverVar == 5) {
-                            needsRepair = (tCur >= tMax * 8 / 10);
+                            needsRepair = (tCur >= tMax * 2 / 10);
                         } else {
                             long mExpectedDamage = Math.round(Math.min(multi.mEUt / multi.damageFactorLow, Math.pow(multi.mEUt, multi.damageFactorHigh)));
                             needsRepair = tCur + mExpectedDamage * 2 >= tMax;
@@ -180,7 +180,7 @@ public class GT_Cover_NeedMaintainance extends GT_CoverBehavior {
                 trans("249", "3 Issues"),
                 trans("250", "4 Issues"),
                 trans("251", "5 Issues"),
-                trans("252", "Rotor < 80%"),
+                trans("252", "Rotor < 20%"),
                 trans("253", "Rotor < 100%"),
 
                 trans("INVERTED","Inverted"),
