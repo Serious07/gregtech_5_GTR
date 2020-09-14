@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import gregtech.api.GregTech_API;
 import gregtech.api.items.GT_Generic_Block;
+import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.util.GT_LanguageManager;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -32,7 +33,12 @@ public abstract class GT_Block_Casings_Abstract
         GT_LanguageManager.addStringLocalization(getUnlocalizedName() + "." + 32767 + ".name", "Any Sub Block of this");
     }
 
-    public String getHarvestTool(int aMeta) {
+    @Override
+    public boolean allowCoverOnSide(byte aSide, GT_ItemStack aCoverID) {
+        return true;
+    }
+
+	public String getHarvestTool(int aMeta) {
         return "wrench";
     }
 
