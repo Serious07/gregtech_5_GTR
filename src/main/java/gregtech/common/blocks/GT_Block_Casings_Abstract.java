@@ -33,11 +33,6 @@ public abstract class GT_Block_Casings_Abstract
         GT_LanguageManager.addStringLocalization(getUnlocalizedName() + "." + 32767 + ".name", "Any Sub Block of this");
     }
 
-    @Override
-    public boolean allowCoverOnSide(byte aSide, GT_ItemStack aCoverID) {
-        return true;
-    }
-
 	public String getHarvestTool(int aMeta) {
         return "wrench";
     }

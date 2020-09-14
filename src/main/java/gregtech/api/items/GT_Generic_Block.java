@@ -19,9 +19,4 @@ public class GT_Generic_Block extends Block{
         GT_LanguageManager.addStringLocalization(getUnlocalizedName() + "." + W + ".name", "Any Sub Block of this one");
    
     }
-
-	public boolean allowCoverOnSide(byte aSide, GT_ItemStack aStack) {
-		// TODO Auto-generated method stub
-		return true;
-	}
 }
