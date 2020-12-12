@@ -2531,13 +2531,13 @@ if(Loader.isModLoaded("Railcraft")){
             if(Loader.isModLoaded("GraviSuite")){
                 GT_ModHandler.removeRecipeByOutput(GT_ModHandler.getModItem("GraviSuite", "graviChestPlate", 1, GT_Values.W));
                 GT_Values.RA.addAssemblylineRecipe(GT_ModHandler.getIC2Item("quantumBodyarmor", 1L, GT_Values.W), 144000, new Object[]{
-                		GT_ModHandler.getIC2Item("quantumBodyarmor", 1L, 1),
+                		GT_ModHandler.getIC2Item("quantumBodyarmor", 1L, GT_Values.W),
                         ItemList.Transformer_ZPM_LuV.get(1L),
-                        GT_ModHandler.getModItem("GraviSuite", "ultimateLappack", 1, 1),
+                        GT_ModHandler.getModItem("GraviSuite", "ultimateLappack", 1, GT_Values.W),
                         GT_ModHandler.getModItem("GraviSuite", "itemSimpleItem", 6, 1),
                         GT_ModHandler.getModItem("GraviSuite", "itemSimpleItem", 2, 2),
                         GT_ModHandler.getModItem("GraviSuite", "itemSimpleItem", 2, 3),
-                		new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), 2},
+                        new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), 2},
                     	GT_OreDictUnificator.get(OrePrefixes.plateDense, Materials.Duranium, 2),
                     	ItemList.Energy_LapotronicOrb2.get(1, new Object[]{}),
                     	ItemList.Field_Generator_IV.get(2, new Object[]{}),
