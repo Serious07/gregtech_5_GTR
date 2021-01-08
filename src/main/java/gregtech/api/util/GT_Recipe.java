@@ -9,6 +9,7 @@ import gregtech.api.objects.GT_FluidStack;
 import gregtech.api.objects.GT_ItemStack;
 import gregtech.api.objects.ItemData;
 import gregtech.api.objects.MaterialStack;
+import gregtech.common.tileentities.machines.basic.GT_Components;
 import gregtech.nei.GT_NEI_DefaultHandler.FixedPositionedStack;
 import mantle.items.ItemUtils;
 import net.minecraft.init.Blocks;
@@ -24,6 +25,7 @@ import net.minecraftforge.fluids.IFluidContainerItem;
 import java.util.*;
 
 import static gregtech.api.enums.GT_Values.*;
+
 
 /**
  * NEVER INCLUDE THIS FILE IN YOUR MOD!!!
@@ -44,6 +46,7 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
      * If you want to change the Output, feel free to modify or even replace the whole ItemStack Array, for Inputs, please add a new Recipe, because of the HashMaps.
      */
     public FluidStack[] mFluidInputs, mFluidOutputs;
+    
     /**
      * If you changed the amount of Array-Items inside the Output Array then the length of this Array must be larger or equal to the Output Array. A chance of 10000 equals 100%
      */
@@ -164,7 +167,7 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
         mDuration = aDuration;
         mSpecialValue = aSpecialValue;        	
         mEUt = aEUt;
-
+        
 //		checkCellBalance();
     }
 
@@ -337,103 +340,104 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
     public boolean isRecipeInputEqual(boolean aDecreaseStacksizeBySuccess, FluidStack[] aFluidInputs, ItemStack... aInputs) {
         return isRecipeInputEqual(aDecreaseStacksizeBySuccess, false, aFluidInputs, aInputs);
     }
-
+    
     public boolean isRecipeInputEqual(boolean aDecreaseStacksizeBySuccess, boolean aDontCheckStackSizes, FluidStack[] aFluidInputs, ItemStack... aInputs) {
-        if (mFluidInputs.length > 0 && aFluidInputs == null) return false;
-        int amt;
-        for (FluidStack tFluid : mFluidInputs)
-            if (tFluid != null) {
-                boolean temp = true;
-                amt = tFluid.amount;
-                for (FluidStack aFluid : aFluidInputs)
-                    if (aFluid != null && aFluid.isFluidEqual(tFluid)) {
-                        if (aDontCheckStackSizes) {
-                            temp = false;
-                            break;
+    		if (mFluidInputs.length > 0 && aFluidInputs == null) return false;
+            int amt;
+            
+            for (FluidStack tFluid : mFluidInputs)
+                if (tFluid != null) {
+                    boolean temp = true;
+                    amt = tFluid.amount;
+                    for (FluidStack aFluid : aFluidInputs)
+                        if (aFluid != null && aFluid.isFluidEqual(tFluid)) {
+                            if (aDontCheckStackSizes) {
+                                temp = false;
+                                break;
+                            }
+                            amt -= aFluid.amount;
+                            if (amt < 1) {
+                                temp = false;
+                                break;
+                            }
                         }
-                        amt -= aFluid.amount;
-                        if (amt < 1) {
-                            temp = false;
-                            break;
+                    if (temp) return false;
+                }
+
+            if (mInputs.length > 0 && aInputs == null) return false;
+
+            for (ItemStack tStack : mInputs) {
+                if (tStack != null) {
+                    amt = tStack.stackSize;
+                    boolean temp = true;
+                    for (ItemStack aStack : aInputs) {
+                        if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
+                            if (aDontCheckStackSizes) {
+                                temp = false;
+                                break;
+                            }
+                            amt -= aStack.stackSize;
+                            if (amt < 1) {
+                                temp = false;
+                                break;
+                            }
                         }
                     }
-                if (temp) return false;
+                    
+                    if (temp) return false;
+                }
             }
-
-        if (mInputs.length > 0 && aInputs == null) return false;
-
-        for (ItemStack tStack : mInputs) {
-            if (tStack != null) {
-                amt = tStack.stackSize;
-                boolean temp = true;
-                for (ItemStack aStack : aInputs) {
-                    if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
-                        if (aDontCheckStackSizes) {
-                            temp = false;
-                            break;
-                        }
-                        amt -= aStack.stackSize;
-                        if (amt < 1) {
-                            temp = false;
-                            break;
+            if (aDecreaseStacksizeBySuccess) {
+                if (aFluidInputs != null) {
+                    for (FluidStack tFluid : mFluidInputs) {
+                        if (tFluid != null) {
+                            amt = tFluid.amount;
+                            for (FluidStack aFluid : aFluidInputs) {
+                                if (aFluid != null && aFluid.isFluidEqual(tFluid)) {
+                                    if (aDontCheckStackSizes) {
+                                        aFluid.amount -= amt;
+                                        break;
+                                    }
+                                    if (aFluid.amount < amt) {
+                                        amt -= aFluid.amount;
+                                        aFluid.amount = 0;
+                                    } else {
+                                        aFluid.amount -= amt;
+                                        amt = 0;
+                                        break;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                
-                if (temp) return false;
-            }
-        }
-        if (aDecreaseStacksizeBySuccess) {
-            if (aFluidInputs != null) {
-                for (FluidStack tFluid : mFluidInputs) {
-                    if (tFluid != null) {
-                        amt = tFluid.amount;
-                        for (FluidStack aFluid : aFluidInputs) {
-                            if (aFluid != null && aFluid.isFluidEqual(tFluid)) {
-                                if (aDontCheckStackSizes) {
-                                    aFluid.amount -= amt;
-                                    break;
-                                }
-                                if (aFluid.amount < amt) {
-                                    amt -= aFluid.amount;
-                                    aFluid.amount = 0;
-                                } else {
-                                    aFluid.amount -= amt;
-                                    amt = 0;
-                                    break;
+
+                if (aInputs != null) {
+                    for (ItemStack tStack : mInputs) {
+                        if (tStack != null) {
+                            amt = tStack.stackSize;
+                            for (ItemStack aStack : aInputs) {
+                                if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
+                                    if (aDontCheckStackSizes) {
+                                        aStack.stackSize -= amt;
+                                        break;
+                                    }
+                                    if (aStack.stackSize < amt) {
+                                        amt -= aStack.stackSize;
+                                        aStack.stackSize = 0;
+                                    } else {
+                                        aStack.stackSize -= amt;
+                                        amt = 0;
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-
-            if (aInputs != null) {
-                for (ItemStack tStack : mInputs) {
-                    if (tStack != null) {
-                        amt = tStack.stackSize;
-                        for (ItemStack aStack : aInputs) {
-                            if ((GT_Utility.areUnificationsEqual(aStack, tStack, true) || GT_Utility.areUnificationsEqual(GT_OreDictUnificator.get(false, aStack), tStack, true))) {
-                                if (aDontCheckStackSizes) {
-                                    aStack.stackSize -= amt;
-                                    break;
-                                }
-                                if (aStack.stackSize < amt) {
-                                    amt -= aStack.stackSize;
-                                    aStack.stackSize = 0;
-                                } else {
-                                    aStack.stackSize -= amt;
-                                    amt = 0;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        return true;
+            
+            return true;
     }
 
     @Override
@@ -843,13 +847,51 @@ public class GT_Recipe implements Comparable<GT_Recipe> {
                 if (tStack != null) {
                     Collection<GT_Recipe>
                             tRecipes = mRecipeItemMap.get(new GT_ItemStack(tStack));
-                    if (tRecipes != null) for (GT_Recipe tRecipe : tRecipes)
-                        if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs))
-                            return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    
+                    if (tRecipes != null) {
+                    	final ItemStack[] finalAInputs = aInputs;
+                    	
+                    	Optional<GT_Recipe> result = tRecipes.parallelStream().filter(
+                    			tRecipe -> tRecipeForParallelCondition(tRecipe, aDontCheckStackSizes, aFluids, finalAInputs)).findFirst();
+                    	
+                    	if(result.isPresent() && result != null && result.get() != null) {
+                    		return result.get().mEnabled && aVoltage * mAmperage >= result.get().mEUt ? result.get() : null;
+                    	}
+                    	
+                    	//for (GT_Recipe tRecipe : tRecipes) {
+                    	//	if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs)) {
+                    	//		return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    	//	}
+                    	//}
+                    }
+                    
                     tRecipes = mRecipeItemMap.get(new GT_ItemStack(GT_Utility.copyMetaData(W, tStack)));
-                    if (tRecipes != null) for (GT_Recipe tRecipe : tRecipes)
-                        if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs))
-                            return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    
+                    if (tRecipes != null) {
+                    	final ItemStack[] finalAInputs = aInputs;
+                    	
+                    	Optional<GT_Recipe> result = tRecipes.parallelStream().filter(
+                    			tRecipe -> tRecipeForParallelCondition(tRecipe, aDontCheckStackSizes, aFluids, finalAInputs)).findFirst();
+                    	
+                    	if(result.isPresent() && result != null && result.get() != null) {
+                    		return result.get().mEnabled && aVoltage * mAmperage >= result.get().mEUt ? result.get() : null;
+                    	}
+                    	
+                    	//for (GT_Recipe tRecipe : tRecipes) {
+                    	//	if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs)) {
+                    	//		return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    	//	}
+                    	//}
+                    }
+                    
+                    //if (tRecipes != null) for (GT_Recipe tRecipe : tRecipes)
+                    //    if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs))
+                    //        return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
+                    
+                    //tRecipes = mRecipeItemMap.get(new GT_ItemStack(GT_Utility.copyMetaData(W, tStack)));
+                    //if (tRecipes != null) for (GT_Recipe tRecipe : tRecipes)
+                    //    if (!tRecipe.mFakeRecipe && tRecipe.isRecipeInputEqual(false, aDontCheckStackSizes, aFluids, aInputs))
+                    //        return tRecipe.mEnabled && aVoltage * mAmperage >= tRecipe.mEUt ? tRecipe : null;
                 }
 
             // If the minimal Amount of Items for the Recipe is 0, then it could be a Fluid-Only Recipe, so check that Map too.
