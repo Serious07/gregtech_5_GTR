@@ -2260,15 +2260,9 @@ if(Loader.isModLoaded("Railcraft")){
         		GT_OreDictUnificator.get(OrePrefixes.gearGtSmall, Materials.HSSG, 3L),
         		ItemList.Electric_Motor_LuV.get(2, new Object(){}),
         		ItemList.Electric_Piston_LuV.get(1, new Object(){}),
-        		
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Master, 2L),
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Elite, 4L),
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Data, 8L),
-        		
-        		/*new Object[]{OrePrefixes.circuit.get(Materials.Master), 2},
+        		new Object[]{OrePrefixes.circuit.get(Materials.Master), 2},
         		new Object[]{OrePrefixes.circuit.get(Materials.Elite), 4},
-        		new Object[]{OrePrefixes.circuit.get(Materials.Data), 8},*/
-        		
+        		new Object[]{OrePrefixes.circuit.get(Materials.Data), 8},
         		GT_OreDictUnificator.get(OrePrefixes.cableGt01, Materials.YttriumBariumCuprate, 6L)}, new FluidStack[]{
         		Materials.SolderingAlloy.getMolten(576),
         		Materials.Lubricant.getFluid(250)}, ItemList.Robot_Arm_LuV.get(1, new Object[]{}), 600, 6000);
@@ -2278,16 +2272,10 @@ if(Loader.isModLoaded("Railcraft")){
         		GT_OreDictUnificator.get(OrePrefixes.gear, Materials.HSSE, 1L),
         		GT_OreDictUnificator.get(OrePrefixes.gearGtSmall, Materials.HSSE, 3L),
         		ItemList.Electric_Motor_ZPM.get(2, new Object(){}),
-        		ItemList.Electric_Piston_ZPM.get(1, new Object(){}),
-        		
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Ultimate, 2L),
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Master, 4L),
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Elite, 8L),
-        		
-        		/*new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), 2},
+        		ItemList.Electric_Piston_ZPM.get(1, new Object(){}),        		
+        		new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), 2},
                 new Object[]{OrePrefixes.circuit.get(Materials.Master), 4},
-                new Object[]{OrePrefixes.circuit.get(Materials.Elite), 8},*/
-                
+                new Object[]{OrePrefixes.circuit.get(Materials.Elite), 8},            
         		GT_OreDictUnificator.get(OrePrefixes.cableGt04, Materials.VanadiumGallium, 6L)}, new FluidStack[]{
         		Materials.SolderingAlloy.getMolten(1152),
         		Materials.Lubricant.getFluid(750)}, ItemList.Robot_Arm_ZPM.get(1, new Object[]{}), 600, 24000);
@@ -2298,15 +2286,9 @@ if(Loader.isModLoaded("Railcraft")){
         		GT_OreDictUnificator.get(OrePrefixes.gearGtSmall, Materials.Iridium, 3L),
         		ItemList.Electric_Motor_UV.get(2, new Object(){}),
         		ItemList.Electric_Piston_UV.get(1, new Object(){}),
-        		
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Superconductor, 2L),
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Ultimate, 4L),
-        		GT_OreDictUnificator.get(OrePrefixes.circuit, Materials.Master, 8L),
-        		
-                /*new Object[]{OrePrefixes.circuit.get(Materials.Superconductor), 2},
+                new Object[]{OrePrefixes.circuit.get(Materials.Superconductor), 2},
                 new Object[]{OrePrefixes.circuit.get(Materials.Ultimate), 4},
-                new Object[]{OrePrefixes.circuit.get(Materials.Master), 8},*/
-                
+                new Object[]{OrePrefixes.circuit.get(Materials.Master), 8},
         		GT_OreDictUnificator.get(OrePrefixes.cableGt04, Materials.NaquadahAlloy, 6L)}, new FluidStack[]{
         		Materials.SolderingAlloy.getMolten(2304),
         		Materials.Lubricant.getFluid(2000),
